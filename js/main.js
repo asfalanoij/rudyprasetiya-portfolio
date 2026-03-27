@@ -37,7 +37,7 @@ $$('.drawer__link').forEach(link => {
 /* ── Typing Animation ─────────────────────────────── */
 const typeEl = $('#type-el');
 const words = [
-  'GRC Practitioner',
+  'RegTech Builder',
   'Cybersecurity Analyst',
   'Risk Strategist',
   'AI Governance Expert',
@@ -255,6 +255,16 @@ if (form) {
     }
   });
 }
+
+/* ── Project Cards Toggle ─────────────────────────── */
+$$('.proj-card').forEach(card => {
+  card.querySelector('.proj-card__header').addEventListener('click', () => {
+    const open = card.dataset.expanded === 'true';
+    card.dataset.expanded = open ? 'false' : 'true';
+    const icon = card.querySelector('.proj-toggle-icon');
+    if (icon) icon.style.transform = open ? 'rotate(0deg)' : 'rotate(180deg)';
+  });
+});
 
 /* ── Smooth Parallax on Hero ──────────────────────── */
 const heroContent = $('.hero__content');
