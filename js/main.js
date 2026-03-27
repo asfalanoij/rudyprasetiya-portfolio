@@ -293,6 +293,16 @@ $$('.proj-card').forEach(card => {
   });
 });
 
+/* ── Sticky Hire Me Button ────────────────────────── */
+const stickyHire = document.getElementById('sticky-hire');
+if (stickyHire) {
+  const heroHeight = () => document.getElementById('hero')?.offsetHeight || window.innerHeight;
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > heroHeight() * 0.8) stickyHire.classList.add('visible');
+    else stickyHire.classList.remove('visible');
+  }, { passive: true });
+}
+
 /* ── Smooth Parallax on Hero ──────────────────────── */
 const heroContent = $('.hero__content');
 if (heroContent) {
