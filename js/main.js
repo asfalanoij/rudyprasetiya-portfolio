@@ -256,6 +256,33 @@ if (form) {
   });
 }
 
+/* ── Visitor Country + Count ─────────────────────── */
+(async () => {
+  try {
+    const geo = await fetch('https://ipapi.co/json/').then(r => r.json());
+    const countryEl = document.getElementById('visitor-country');
+    if (countryEl && geo.country_code && geo.country_name) {
+      countryEl.textContent = '';
+      const flag = document.createElement('img');
+      flag.src = `https://flagcdn.com/16x12/${geo.country_code.toLowerCase()}.png`;
+      flag.alt = '';
+      flag.style.cssText = 'vertical-align:middle;margin-right:3px;border-radius:1px;';
+      const name = document.createTextNode(geo.country_name);
+      countryEl.appendChild(flag);
+      countryEl.appendChild(name);
+    }
+  } catch (_) {}
+  try {
+    const res = await fetch(
+      'https://api.counterapi.dev/v1/rudyprasetiya/portfolio/up'
+    ).then(r => r.json());
+    const countEl = document.getElementById('visitor-count');
+    if (countEl && res.count != null) {
+      countEl.textContent = res.count.toLocaleString();
+    }
+  } catch (_) {}
+})();
+
 /* ── Project Cards Toggle ─────────────────────────── */
 $$('.proj-card').forEach(card => {
   card.querySelector('.proj-card__header').addEventListener('click', () => {
