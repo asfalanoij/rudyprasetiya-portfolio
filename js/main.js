@@ -37,13 +37,12 @@ $$('.drawer__link').forEach(link => {
 /* ── Typing Animation ─────────────────────────────── */
 const typeEl = $('#type-el');
 const words = [
-  'GRC Engineer',
-  'IT Audit Manager',
-  'Risk Strategist',
+  'GRC Practitioner',
   'Cybersecurity Analyst',
+  'Risk Strategist',
   'AI Governance Expert',
-  'Fraud Examiner',
-  'Data Governance Lead',
+  'Data Scientist',
+  'Published Researcher',
 ];
 
 if (typeEl) {
@@ -248,7 +247,7 @@ if (form) {
     } catch {
       if (formNote) {
         formNote.style.color = '#ff6b6b';
-        formNote.textContent  = '✗ Network error — please email rudyhendra@iuj.ac.jp or call +62 811-482-8024.';
+        formNote.textContent  = '✗ Network error — please email rudyhendra@iuj.ac.jp directly.';
       }
     } finally {
       submitBtn.disabled = false;
