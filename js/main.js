@@ -247,7 +247,7 @@ if (form) {
     } catch {
       if (formNote) {
         formNote.style.color = '#ff6b6b';
-        formNote.textContent  = '✗ Network error — please email rudyhendra@iuj.ac.jp directly.';
+        formNote.textContent  = '✗ Network error — please email prasetiyarudy@gmail.com directly.';
       }
     } finally {
       submitBtn.disabled = false;
