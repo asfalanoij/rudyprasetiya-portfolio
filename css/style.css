@@ -1399,6 +1399,8 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .footer__meta-icon { font-size: 0.65rem; }
 .footer__meta-val { color: #64748b; }
 .footer__meta-label { color: #334155; }
+.footer__meta-icon--blue { color: #00d4ff; }
+.footer__meta-icon--purple { color: #7b2fbe; }
 
 /* ── Available badge (hero) ──────────────────────── */
 .hero__available {

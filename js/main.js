@@ -94,12 +94,13 @@ if (typeEl) {
 /* ── Canvas — Cyber Network Particles ────────────── */
 const canvas = $('#hero-canvas');
 
-if (canvas) {
+if (canvas && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   const ctx2d = canvas.getContext('2d');
   let W, H, particles, animId;
 
-  const PARTICLE_COUNT = 80;
-  const CONNECTION_DIST = 140;
+  const isMobile = window.innerWidth < 768;
+  const PARTICLE_COUNT = isMobile ? 35 : 80;
+  const CONNECTION_DIST = isMobile ? 100 : 140;
   const COLORS = ['#00d4ff', '#7b2fbe', '#00ffb3'];
 
   class Particle {
@@ -256,32 +257,36 @@ if (form) {
   });
 }
 
-/* ── Visitor Country + Count ─────────────────────── */
-(async () => {
-  try {
-    const geo = await fetch('https://ipapi.co/json/').then(r => r.json());
-    const countryEl = document.getElementById('visitor-country');
-    if (countryEl && geo.country_code && geo.country_name) {
-      countryEl.textContent = '';
-      const flag = document.createElement('img');
-      flag.src = `https://flagcdn.com/16x12/${geo.country_code.toLowerCase()}.png`;
-      flag.alt = '';
-      flag.style.cssText = 'vertical-align:middle;margin-right:3px;border-radius:1px;';
-      const name = document.createTextNode(geo.country_name);
-      countryEl.appendChild(flag);
-      countryEl.appendChild(name);
-    }
-  } catch (_) {}
-  try {
-    const res = await fetch(
-      'https://api.counterapi.dev/v1/rudyprasetiya/portfolio/up'
-    ).then(r => r.json());
-    const countEl = document.getElementById('visitor-count');
-    if (countEl && res.count != null) {
-      countEl.textContent = res.count.toLocaleString();
-    }
-  } catch (_) {}
-})();
+/* ── Visitor Country + Count (deferred until footer visible) ── */
+const footerMeta = $('.footer__meta');
+if (footerMeta) {
+  let fetched = false;
+  const footerObs = new IntersectionObserver((entries) => {
+    if (fetched || !entries[0].isIntersecting) return;
+    fetched = true;
+    footerObs.disconnect();
+
+    fetch('https://ipapi.co/json/').then(r => r.json()).then(geo => {
+      const countryEl = document.getElementById('visitor-country');
+      if (countryEl && geo.country_code && geo.country_name) {
+        countryEl.textContent = '';
+        const flag = document.createElement('img');
+        flag.src = `https://flagcdn.com/16x12/${geo.country_code.toLowerCase()}.png`;
+        flag.alt = '';
+        flag.style.cssText = 'vertical-align:middle;margin-right:3px;border-radius:1px;';
+        countryEl.appendChild(flag);
+        countryEl.appendChild(document.createTextNode(geo.country_name));
+      }
+    }).catch(() => {});
+
+    fetch('https://api.counterapi.dev/v1/rudyprasetiya/portfolio/up')
+      .then(r => r.json()).then(res => {
+        const countEl = document.getElementById('visitor-count');
+        if (countEl && res.count != null) countEl.textContent = res.count.toLocaleString();
+      }).catch(() => {});
+  }, { rootMargin: '200px' });
+  footerObs.observe(footerMeta);
+}
 
 /* ── Project Cards Toggle ─────────────────────────── */
 $$('.proj-card').forEach(card => {

@@ -18,11 +18,13 @@
   <link rel="apple-touch-icon" href="assets/icons/rudy.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <link rel="stylesheet" href="css/style.css" />
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" /></noscript>
+    <link rel="stylesheet" href="css/icons.css" />
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
@@ -90,10 +92,10 @@
         now building tools that close the gap between compliance and code.
       </p>
       <div class="hero__actions">
-        <a href="#services" class="btn btn-primary"><i class="fas fa-briefcase"></i> Consulting</a>
+        <a href="#services" class="btn btn-primary"><span class="fa-icon fa-icon-briefcase"></span> Consulting</a>
         <a href="https://wa.me/628114828024?text=Hi%20Rudy%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project."
           target="_blank" rel="noopener" class="btn btn-ghost">
-          <i class="fab fa-whatsapp"></i> WhatsApp
+          <span class="fa-icon fa-icon-whatsapp"></span> WhatsApp
         </a>
       </div>
       <div class="hero__available">
@@ -134,20 +136,18 @@
       <div class="about__grid">
         <div class="about__visual">
           <div class="about__avatar-wrap">
-            <div class="about__avatar" style="padding:0;overflow:hidden;"><img src="assets/icons/pic_owe2.jpg"
+            <div class="about__avatar" style="padding:0;overflow:hidden;"><img src="assets/icons/pic_owe2.webp" onerror="this.src='assets/icons/pic_owe2.jpg'"
                 alt="Rudy Prasetiya"
-                style="width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:50%;" /></div>
+                style="width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:50%;" / loading="lazy"></div>
             <div class="about__avatar-ring"></div>
             <div class="about__avatar-ring about__avatar-ring--2"></div>
-            <div class="about__badge"><i class="fas fa-shield-halved"></i> IT GRC and RegTech Builder</div>
+            <div class="about__badge"><span class="fa-icon fa-icon-shield-halved"></span> IT GRC and RegTech Builder</div>
           </div>
           <div class="about__socials">
             <a href="https://www.linkedin.com/in/rudyprasetiya" target="_blank" rel="noopener" class="social-btn"
-              title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://github.com/asfalanoij" target="_blank" rel="noopener" class="social-btn" title="GitHub"><i
-                class="fab fa-github"></i></a>
-            <a href="mailto:prasetiyarudy@gmail.com" class="social-btn" title="Email"><i
-                class="fas fa-envelope"></i></a>
+              title="LinkedIn"><span class="fa-icon fa-icon-linkedin-in"></span></a>
+            <a href="https://github.com/asfalanoij" target="_blank" rel="noopener" class="social-btn" title="GitHub"><span class="fa-icon fa-icon-github"></span></a>
+            <a href="mailto:prasetiyarudy@gmail.com" class="social-btn" title="Email"><span class="fa-icon fa-icon-envelope"></span></a>
           </div>
         </div>
         <div class="about__content">
@@ -169,21 +169,21 @@
             domains.
           </p>
           <ul class="about__checks">
-            <li><i class="fas fa-circle-check"></i> Manager, Audit Planning &amp; Development — Telin (Dec 2025 –
+            <li><span class="fa-icon fa-icon-circle-check"></span> Manager, Audit Planning &amp; Development — Telin (Dec 2025 –
               Present)</li>
-            <li><i class="fas fa-circle-check"></i> Building: NIST 800-53 chatbot, compliance-as-code, ERM &amp; audit
+            <li><span class="fa-icon fa-icon-circle-check"></span> Building: NIST 800-53 chatbot, compliance-as-code, ERM &amp; audit
               dashboards</li>
-            <li><i class="fas fa-circle-check"></i> Data Science (CDSP) &middot; Cybersecurity (CC) &middot; Risk
+            <li><span class="fa-icon fa-icon-circle-check"></span> Data Science (CDSP) &middot; Cybersecurity (CC) &middot; Risk
               Management (QRMP) certified &middot; IELTS 7.5
             </li>
-            <li><i class="fas fa-circle-check"></i> Published researcher — income inequality &amp; economic complexity
+            <li><span class="fa-icon fa-icon-circle-check"></span> Published researcher — income inequality &amp; economic complexity
               <a href="https://doi.org/10.36574/jpp.v5i3.213" target="_blank" rel="noopener">(DOI)</a>
             </li>
           </ul>
           <div class="about__cta">
             <a href="#projects" class="btn btn-primary">See My Projects</a>
             <a href="https://www.linkedin.com/in/rudyprasetiya" target="_blank" rel="noopener" class="btn btn-outline">
-              <i class="fab fa-linkedin-in"></i> LinkedIn
+              <span class="fa-icon fa-icon-linkedin-in"></span> LinkedIn
             </a>
           </div>
         </div>
@@ -203,7 +203,7 @@
       <div class="services-grid">
 
         <div class="svc-card reveal">
-          <div class="svc-card__icon"><i class="fas fa-magnifying-glass-chart"></i></div>
+          <div class="svc-card__icon"><span class="fa-icon fa-icon-magnifying-glass-chart"></span></div>
           <h3 class="svc-card__title">GRC Consulting</h3>
           <p class="svc-card__desc">Risk-based audit planning, ERM frameworks, and compliance gap assessments — grounded
             in 16 years of government and financial sector practice.</p>
@@ -215,12 +215,12 @@
           </ul>
           <a href="https://wa.me/628114828024?text=Hi%20Rudy%2C%20I%27m%20interested%20in%20GRC%20consulting%20services."
             target="_blank" rel="noopener" class="svc-card__cta">
-            <i class="fab fa-whatsapp"></i> Let's Talk
+            <span class="fa-icon fa-icon-whatsapp"></span> Let's Talk
           </a>
         </div>
 
         <div class="svc-card reveal">
-          <div class="svc-card__icon"><i class="fas fa-shield-halved"></i></div>
+          <div class="svc-card__icon"><span class="fa-icon fa-icon-shield-halved"></span></div>
           <h3 class="svc-card__title">Cybersecurity Assessment</h3>
           <p class="svc-card__desc">Vulnerability assessments, OSINT-based exposure mapping, and IT audit reviews —
             helping organisations understand and close their real attack surface.</p>
@@ -232,12 +232,12 @@
           </ul>
           <a href="https://wa.me/628114828024?text=Hi%20Rudy%2C%20I%27m%20interested%20in%20a%20cybersecurity%20assessment."
             target="_blank" rel="noopener" class="svc-card__cta">
-            <i class="fab fa-whatsapp"></i> Let's Talk
+            <span class="fa-icon fa-icon-whatsapp"></span> Let's Talk
           </a>
         </div>
 
         <div class="svc-card reveal">
-          <div class="svc-card__icon"><i class="fas fa-robot"></i></div>
+          <div class="svc-card__icon"><span class="fa-icon fa-icon-robot"></span></div>
           <h3 class="svc-card__title">RegTech Tool Building</h3>
           <p class="svc-card__desc">Custom compliance dashboards, RAG chatbots for regulatory documents, and AI-assisted
             audit pipelines — built by someone who also does the auditing.</p>
@@ -249,7 +249,7 @@
           </ul>
           <a href="https://wa.me/628114828024?text=Hi%20Rudy%2C%20I%27m%20interested%20in%20RegTech%20tool%20development."
             target="_blank" rel="noopener" class="svc-card__cta">
-            <i class="fab fa-whatsapp"></i> Let's Talk
+            <span class="fa-icon fa-icon-whatsapp"></span> Let's Talk
           </a>
         </div>
 
@@ -271,7 +271,7 @@
         <div class="exp-card reveal">
           <div class="exp-card__glow"></div>
           <div class="exp-card__num">01</div>
-          <div class="exp-card__icon"><i class="fas fa-magnifying-glass-chart"></i></div>
+          <div class="exp-card__icon"><span class="fa-icon fa-icon-magnifying-glass-chart"></span></div>
           <h3 class="exp-card__title">Internal Audit</h3>
           <p class="exp-card__desc">Risk-based audit programs aligned with IIA standards and COSO-ERM. 16 years leading
             audit functions across government and financial sectors — ICOFR, probity, ESG/SDG, thematic audit design,
@@ -291,7 +291,7 @@
         <div class="exp-card reveal">
           <div class="exp-card__glow"></div>
           <div class="exp-card__num">02</div>
-          <div class="exp-card__icon"><i class="fas fa-triangle-exclamation"></i></div>
+          <div class="exp-card__icon"><span class="fa-icon fa-icon-triangle-exclamation"></span></div>
           <h3 class="exp-card__title">Risk Management</h3>
           <p class="exp-card__desc">Enterprise risk modelling and ERM system design. Bridges public policy, IFRS 9, game
             theory, and risk velocity — built into an ERM dashboard simulation for Pupuk Indonesia Holding Company.
@@ -309,7 +309,7 @@
         <div class="exp-card reveal">
           <div class="exp-card__glow"></div>
           <div class="exp-card__num">03</div>
-          <div class="exp-card__icon"><i class="fas fa-shield-halved"></i></div>
+          <div class="exp-card__icon"><span class="fa-icon fa-icon-shield-halved"></span></div>
           <h3 class="exp-card__title">Cybersecurity</h3>
           <p class="exp-card__desc">Vulnerability assessments, digital forensics, OSINT-based exposure mapping.
             Diagnosed attack surface via VA at BPKP; proposed feasible actions to close 55% of identified attack vectors
@@ -326,7 +326,7 @@
         <div class="exp-card reveal">
           <div class="exp-card__glow"></div>
           <div class="exp-card__num">04</div>
-          <div class="exp-card__icon"><i class="fas fa-scale-balanced"></i></div>
+          <div class="exp-card__icon"><span class="fa-icon fa-icon-scale-balanced"></span></div>
           <h3 class="exp-card__title">IT GRC &amp; Compliance</h3>
           <p class="exp-card__desc">OJK, BUMN, UU PDP, ISO 37301, COBIT-2019, KYC/AML — applied, not theoretical. Built
             a Compliance-as-Code platform (C3) for a payment company and a NIST 800-53 chatbot to make technical
@@ -344,7 +344,7 @@
         <div class="exp-card exp-card--wide reveal">
           <div class="exp-card__glow"></div>
           <div class="exp-card__num">05</div>
-          <div class="exp-card__icon"><i class="fas fa-robot"></i></div>
+          <div class="exp-card__icon"><span class="fa-icon fa-icon-robot"></span></div>
           <h3 class="exp-card__title">AI Governance &amp; RegTech Engineering</h3>
           <p class="exp-card__desc">Designing governance frameworks for AI adoption while simultaneously building AI
             tools for GRC use cases. Structured-first RAG for regulatory documents, multi-agent audit orchestration,
@@ -381,14 +381,14 @@
               <div class="tl-item__left">
                 <h3 class="tl-item__role">Manager — Audit Planning &amp; Development</h3>
                 <p class="tl-item__company">
-                  <img src="assets/logos/telin.png" alt="Telin"
+                  <img src="assets/logos/telin.webp" onerror="this.src='assets/logos/telin.png'" alt="Telin"
                     style="height:1.1em;vertical-align:middle;margin-right:5px;border-radius:2px;"
-                    onerror="this.style.display='none'" />
+                    onerror="this.style.display='none'" / loading="lazy">
                   Telin &mdash; Telco, SOE &middot; Jakarta
                 </p>
               </div>
               <div class="tl-item__meta">
-                <span><i class="fas fa-calendar-days"></i> Dec 2025 &ndash; Present</span>
+                <span><span class="fa-icon fa-icon-calendar-days"></span> Dec 2025 &ndash; Present</span>
                 <span class="tl-item__current">Current</span>
               </div>
             </div>
@@ -411,14 +411,14 @@
               <div class="tl-item__left">
                 <h3 class="tl-item__role">Department Head, Thematic Audit</h3>
                 <p class="tl-item__company">
-                  <img src="assets/logos/ifglife.png" alt="IFG Life"
+                  <img src="assets/logos/ifglife.webp" onerror="this.src='assets/logos/ifglife.png'" alt="IFG Life"
                     style="height:1.1em;vertical-align:middle;margin-right:5px;border-radius:2px;"
-                    onerror="this.style.display='none'" />
+                    onerror="this.style.display='none'" / loading="lazy">
                   IFG Life &mdash; Insurance, SOE &middot; Jakarta
                 </p>
               </div>
               <div class="tl-item__meta">
-                <span><i class="fas fa-calendar-days"></i> Dec 2024 &ndash; Nov 2025</span>
+                <span><span class="fa-icon fa-icon-calendar-days"></span> Dec 2024 &ndash; Nov 2025</span>
               </div>
             </div>
             <p class="tl-item__desc">Led enterprise-wide thematic audit across claims, data governance,
@@ -440,16 +440,16 @@
                 <h3 class="tl-item__role">Government Internal Auditor &middot; IT Auditor &middot; Cybersecurity Analyst
                 </h3>
                 <p class="tl-item__company">
-                  <img src="assets/logos/bpkp.png" alt="BPKP"
+                  <img src="assets/logos/bpkp.webp" onerror="this.src='assets/logos/bpkp.png'" alt="BPKP"
                     style="height:1.1em;vertical-align:middle;margin-right:5px;border-radius:2px;"
-                    onerror="this.style.display='none'" />
+                    onerror="this.style.display='none'" / loading="lazy">
                   BPKP &mdash; Finance and Development Supervisory Agency &middot; Government
                 </p>
                 <p class="tl-item__company" style="margin-top:0.15rem;font-size:0.78rem;opacity:0.75;">Also: Lecturer
                   &middot; Subject Matter Expert &middot; Instructional Designer &mdash; GIA Corporate University</p>
               </div>
               <div class="tl-item__meta">
-                <span><i class="fas fa-calendar-days"></i> Oct 2008 &ndash; Oct 2024</span>
+                <span><span class="fa-icon fa-icon-calendar-days"></span> Oct 2008 &ndash; Oct 2024</span>
               </div>
             </div>
             <p class="tl-item__desc">Sixteen years across audit, IT governance, and cybersecurity in government.
@@ -472,10 +472,10 @@
             <div class="tl-item__header">
               <div class="tl-item__left">
                 <h3 class="tl-item__role">Senior Consultant &mdash; GRC &amp; IT Audit</h3>
-                <p class="tl-item__company"><i class="fas fa-briefcase"></i> Independent Consultant &middot; Jakarta</p>
+                <p class="tl-item__company"><span class="fa-icon fa-icon-briefcase"></span> Independent Consultant &middot; Jakarta</p>
               </div>
               <div class="tl-item__meta">
-                <span><i class="fas fa-calendar-days"></i> Oct 2012 &ndash; Jun 2024</span>
+                <span><span class="fa-icon fa-icon-calendar-days"></span> Oct 2012 &ndash; Jun 2024</span>
               </div>
             </div>
             <p class="tl-item__desc">Conducted risk maturity assessment for a payment-tech SOE subsidiary and composed a
@@ -520,7 +520,7 @@
                 <span class="stag stag-teal">Python</span>
                 <span class="stag stag-blue">NIST 800-53</span>
               </div>
-              <i class="fas fa-chevron-down proj-toggle-icon"></i>
+              <span class="fa-icon fa-icon-chevron-down proj-toggle-icon"></span>
             </div>
           </div>
           <div class="proj-card__body">
@@ -529,8 +529,7 @@
               precise, control-family-aware answers that don't confabulate. Designed to close the technicalites gap —
               helping practitioners query technical security requirements in plain language.</p>
             <div class="proj-card__links">
-              <a href="https://80053.rudyprasetiya.com" target="_blank" rel="noopener" class="btn btn-outline btn-sm"><i
-                  class="fas fa-external-link-alt"></i> Live Demo</a>
+              <a href="https://80053.rudyprasetiya.com" target="_blank" rel="noopener" class="btn btn-outline btn-sm"><span class="fa-icon fa-icon-external-link-alt"></span> Live Demo</a>
             </div>
           </div>
         </div>
@@ -552,7 +551,7 @@
                 <span class="stag stag-teal">Dashboard</span>
                 <span class="stag stag-blue">OJK / PCI</span>
               </div>
-              <i class="fas fa-chevron-down proj-toggle-icon"></i>
+              <span class="fa-icon fa-icon-chevron-down proj-toggle-icon"></span>
             </div>
           </div>
           <div class="proj-card__body">
@@ -561,8 +560,7 @@
               is mapped automatically, reducing manual prep time before assessments. Compliance-as-Code means the
               compliance posture is version-controlled and auditable.</p>
             <div class="proj-card__links">
-              <a href="https://c3.rudyprasetiya.com/" target="_blank" rel="noopener" class="btn btn-outline btn-sm"><i
-                  class="fas fa-external-link-alt"></i> Live Demo</a>
+              <a href="https://c3.rudyprasetiya.com/" target="_blank" rel="noopener" class="btn btn-outline btn-sm"><span class="fa-icon fa-icon-external-link-alt"></span> Live Demo</a>
             </div>
           </div>
         </div>
@@ -585,7 +583,7 @@
                 <span class="stag stag-orange">Game Theory</span>
                 <span class="stag stag-teal">Dashboard</span>
               </div>
-              <i class="fas fa-chevron-down proj-toggle-icon"></i>
+              <span class="fa-icon fa-icon-chevron-down proj-toggle-icon"></span>
             </div>
           </div>
           <div class="proj-card__body">
@@ -594,8 +592,7 @@
               and IUJ training), food security policy, IFRS 9, and ERM risk velocity concepts. Game-theoretic framing is
               used to model strategic risk interactions between subsidiaries and regulators.</p>
             <div class="proj-card__links">
-              <a href="https://erm.rudyprasetiya.com/" target="_blank" rel="noopener" class="btn btn-outline btn-sm"><i
-                  class="fas fa-external-link-alt"></i> Live Demo</a>
+              <a href="https://erm.rudyprasetiya.com/" target="_blank" rel="noopener" class="btn btn-outline btn-sm"><span class="fa-icon fa-icon-external-link-alt"></span> Live Demo</a>
             </div>
           </div>
         </div>
@@ -617,7 +614,7 @@
                 <span class="stag stag-teal">GCP Cloud Run</span>
                 <span class="stag stag-blue">Audit Management</span>
               </div>
-              <i class="fas fa-chevron-down proj-toggle-icon"></i>
+              <span class="fa-icon fa-icon-chevron-down proj-toggle-icon"></span>
             </div>
           </div>
           <div class="proj-card__body">
@@ -627,7 +624,7 @@
               ongoing exploration of domain-expert-built SaaS in the RegTech space.</p>
             <div class="proj-card__links">
               <a href="https://remix-audit-management-system-843498124367.us-west1.run.app" target="_blank"
-                rel="noopener" class="btn btn-outline btn-sm"><i class="fas fa-external-link-alt"></i> Live App</a>
+                rel="noopener" class="btn btn-outline btn-sm"><span class="fa-icon fa-icon-external-link-alt"></span> Live App</a>
             </div>
           </div>
         </div>
@@ -650,7 +647,7 @@
                 <span class="stag stag-orange">Python</span>
                 <span class="stag stag-blue">OSINT</span>
               </div>
-              <i class="fas fa-chevron-down proj-toggle-icon"></i>
+              <span class="fa-icon fa-icon-chevron-down proj-toggle-icon"></span>
             </div>
           </div>
           <div class="proj-card__body">
@@ -680,7 +677,7 @@
                 <span class="stag stag-teal">MCP</span>
                 <span class="stag stag-blue">Claude Code</span>
               </div>
-              <i class="fas fa-chevron-down proj-toggle-icon"></i>
+              <span class="fa-icon fa-icon-chevron-down proj-toggle-icon"></span>
             </div>
           </div>
           <div class="proj-card__body">
@@ -692,7 +689,7 @@
               plugins.</p>
             <div class="proj-card__links">
               <a href="https://github.com/asfalanoij/the-society" target="_blank" rel="noopener"
-                class="btn btn-outline btn-sm"><i class="fab fa-github"></i> GitHub</a>
+                class="btn btn-outline btn-sm"><span class="fa-icon fa-icon-github"></span> GitHub</a>
             </div>
           </div>
         </div>
@@ -717,7 +714,7 @@
                 <span class="stag stag-orange">Principal-Agent</span>
                 <span class="stag stag-teal">ERM Simulation</span>
               </div>
-              <i class="fas fa-chevron-down proj-toggle-icon"></i>
+              <span class="fa-icon fa-icon-chevron-down proj-toggle-icon"></span>
             </div>
           </div>
           <div class="proj-card__body">
@@ -733,8 +730,7 @@
               iterated game of Indonesian SOE governance.
             </p>
             <div class="proj-card__links">
-              <a href="https://bjr.rudyprasetiya.com/" target="_blank" rel="noopener" class="btn btn-outline btn-sm"><i
-                  class="fas fa-external-link-alt"></i> Live Demo</a>
+              <a href="https://bjr.rudyprasetiya.com/" target="_blank" rel="noopener" class="btn btn-outline btn-sm"><span class="fa-icon fa-icon-external-link-alt"></span> Live Demo</a>
             </div>
           </div>
         </div>
@@ -757,7 +753,7 @@
                 <span class="stag stag-orange">EDA</span>
                 <span class="stag stag-blue">ML Pipeline</span>
               </div>
-              <i class="fas fa-chevron-down proj-toggle-icon"></i>
+              <span class="fa-icon fa-icon-chevron-down proj-toggle-icon"></span>
             </div>
           </div>
           <div class="proj-card__body">
@@ -769,7 +765,7 @@
               built — and understanding that gap is essential for credible ML system audits.</p>
             <div class="proj-card__links">
               <a href="https://github.com/asfalanoij/fraud_detection" target="_blank" rel="noopener"
-                class="btn btn-outline btn-sm"><i class="fab fa-github"></i> GitHub</a>
+                class="btn btn-outline btn-sm"><span class="fa-icon fa-icon-github"></span> GitHub</a>
             </div>
           </div>
         </div>
@@ -789,7 +785,7 @@
       <div class="skills-grid">
 
         <div class="skill-cat reveal">
-          <div class="skill-cat__header"><i class="fas fa-robot"></i>
+          <div class="skill-cat__header"><span class="fa-icon fa-icon-robot"></span>
             <h3>AI &amp; Product Engineering</h3>
           </div>
           <div class="skill-tags">
@@ -805,7 +801,7 @@
         </div>
 
         <div class="skill-cat reveal">
-          <div class="skill-cat__header"><i class="fas fa-magnifying-glass-chart"></i>
+          <div class="skill-cat__header"><span class="fa-icon fa-icon-magnifying-glass-chart"></span>
             <h3>GRC &amp; Audit Practice</h3>
           </div>
           <div class="skill-tags">
@@ -821,7 +817,7 @@
         </div>
 
         <div class="skill-cat reveal">
-          <div class="skill-cat__header"><i class="fas fa-shield-halved"></i>
+          <div class="skill-cat__header"><span class="fa-icon fa-icon-shield-halved"></span>
             <h3>Cybersecurity</h3>
           </div>
           <div class="skill-tags">
@@ -837,7 +833,7 @@
         </div>
 
         <div class="skill-cat reveal">
-          <div class="skill-cat__header"><i class="fas fa-scale-balanced"></i>
+          <div class="skill-cat__header"><span class="fa-icon fa-icon-scale-balanced"></span>
             <h3>Regulatory &amp; Compliance</h3>
           </div>
           <div class="skill-tags">
@@ -856,7 +852,7 @@
 
       <div class="skills-grid" style="margin-top:2rem;">
         <div class="skill-cat reveal" style="grid-column:1/-1;">
-          <div class="skill-cat__header"><i class="fas fa-certificate"></i>
+          <div class="skill-cat__header"><span class="fa-icon fa-icon-certificate"></span>
             <h3>Professional Certifications</h3>
           </div>
           <div class="skill-tags">
@@ -891,28 +887,28 @@
       <div class="contact-grid">
         <div class="contact-info">
           <div class="contact-card reveal">
-            <div class="contact-card__icon"><i class="fas fa-envelope"></i></div>
+            <div class="contact-card__icon"><span class="fa-icon fa-icon-envelope"></span></div>
             <div>
               <h4>Email</h4>
               <a href="mailto:prasetiyarudy@gmail.com">prasetiyarudy@gmail.com</a>
             </div>
           </div>
           <div class="contact-card reveal">
-            <div class="contact-card__icon"><i class="fab fa-linkedin-in"></i></div>
+            <div class="contact-card__icon"><span class="fa-icon fa-icon-linkedin-in"></span></div>
             <div>
               <h4>LinkedIn</h4>
               <a href="https://www.linkedin.com/in/rudyprasetiya" target="_blank" rel="noopener">/in/rudyprasetiya</a>
             </div>
           </div>
           <div class="contact-card reveal">
-            <div class="contact-card__icon"><i class="fab fa-github"></i></div>
+            <div class="contact-card__icon"><span class="fa-icon fa-icon-github"></span></div>
             <div>
               <h4>GitHub</h4>
               <a href="https://github.com/asfalanoij" target="_blank" rel="noopener">asfalanoij</a>
             </div>
           </div>
           <div class="contact-card reveal">
-            <div class="contact-card__icon"><i class="fas fa-location-dot"></i></div>
+            <div class="contact-card__icon"><span class="fa-icon fa-icon-location-dot"></span></div>
             <div>
               <h4>Location</h4>
               <p>Depok, West Java, Indonesia</p>
@@ -941,7 +937,7 @@
               required></textarea>
           </div>
           <button type="submit" class="btn btn-primary btn-full">
-            <i class="fas fa-paper-plane"></i> Send Message
+            <span class="fa-icon fa-icon-paper-plane"></span> Send Message
           </button>
           <p class="form-note" id="form-note"></p>
         </form>
@@ -955,19 +951,18 @@
       <div class="footer__inner">
         <p class="footer__copy">&copy; <span id="year"></span> Rudy Prasetiya &mdash; IT GRC and RegTech Builder</p>
         <div class="footer__social">
-          <a href="https://www.linkedin.com/in/rudyprasetiya" target="_blank" rel="noopener"><i
-              class="fab fa-linkedin-in"></i></a>
-          <a href="https://github.com/asfalanoij" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/rudyprasetiya" target="_blank" rel="noopener"><span class="fa-icon fa-icon-linkedin-in"></span></a>
+          <a href="https://github.com/asfalanoij" target="_blank" rel="noopener"><span class="fa-icon fa-icon-github"></span></a>
         </div>
       </div>
       <div class="footer__meta">
         <span class="footer__meta-item">
-          <i class="fas fa-location-dot footer__meta-icon" style="color:#00d4ff;"></i>
+          <span class="fa-icon fa-icon-location-dot footer__meta-icon footer__meta-icon--blue"></span>
           <span id="visitor-country" class="footer__meta-val">detecting…</span>
         </span>
         <span class="footer__meta-sep">·</span>
         <span class="footer__meta-item">
-          <i class="fas fa-users footer__meta-icon" style="color:#7b2fbe;"></i>
+          <span class="fa-icon fa-icon-users footer__meta-icon footer__meta-icon--purple"></span>
           <span id="visitor-count" class="footer__meta-val">—</span>
           <span class="footer__meta-label">visitors</span>
         </span>
@@ -979,7 +974,7 @@
   <a id="sticky-hire" class="sticky-hire"
     href="https://wa.me/628114828024?text=Hi%20Rudy%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project."
     target="_blank" rel="noopener">
-    <i class="fab fa-whatsapp"></i> Consulting
+    <span class="fa-icon fa-icon-whatsapp"></span> Consulting
   </a>
 
   <script src="js/main.js"></script>

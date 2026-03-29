@@ -20,7 +20,7 @@ RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
   Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
   Header always set Cross-Origin-Opener-Policy "same-origin-allow-popups"
-  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://flagcdn.com https://*.rudyprasetiya.com; connect-src 'self' https://ipapi.co https://api.counterapi.dev; frame-ancestors 'none';"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://flagcdn.com https://*.rudyprasetiya.com; connect-src 'self' https://ipapi.co https://api.counterapi.dev; frame-ancestors 'none';"
   # Suppress server info leakage
   Header always unset X-Turbo-Charged-By
   Header always unset X-Powered-By
