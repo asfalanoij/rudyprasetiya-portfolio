@@ -1,0 +1,499 @@
+# Instincts generated from https://github.com/asfalanoij/rudyprasetiya-portfolio
+# Generated: 2026-03-29T09:49:51.241Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: rudyprasetiya-portfolio-commit-conventional
+trigger: "when writing a commit message"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: https://github.com/asfalanoij/rudyprasetiya-portfolio
+---
+
+# Rudyprasetiya Portfolio Commit Conventional
+
+## Action
+
+Use conventional commit format with prefixes: feat, fix
+
+## Evidence
+
+- 13 commits analyzed
+- Detected conventional commit pattern
+- Examples: fix: harden security headers, extract inline styles, fix email header injection, feat: add Services section, available badge, sticky WhatsApp hire button
+
+---
+id: rudyprasetiya-portfolio-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/asfalanoij/rudyprasetiya-portfolio
+---
+
+# Rudyprasetiya Portfolio Commit Length
+
+## Action
+
+Write moderate-length commit messages (~69 characters)
+
+## Evidence
+
+- Average commit message length: 69 chars
+- Based on 13 commits
+
+---
+id: rudyprasetiya-portfolio-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/asfalanoij/rudyprasetiya-portfolio
+---
+
+# Rudyprasetiya Portfolio Naming Files
+
+## Action
+
+Use camelCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: camelCase
+
+---
+id: rudyprasetiya-portfolio-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/asfalanoij/rudyprasetiya-portfolio
+---
+
+# Rudyprasetiya Portfolio Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: rudyprasetiya-portfolio-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/asfalanoij/rudyprasetiya-portfolio
+---
+
+# Rudyprasetiya Portfolio Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: rudyprasetiya-portfolio-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/asfalanoij/rudyprasetiya-portfolio
+---
+
+# Rudyprasetiya Portfolio Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: rudyprasetiya-portfolio-workflow-feature-development
+trigger: "when implementing a new feature"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/asfalanoij/rudyprasetiya-portfolio
+---
+
+# Rudyprasetiya Portfolio Workflow Feature Development
+
+## Action
+
+Follow the feature-development workflow:
+1. Add feature implementation
+2. Add tests for feature
+3. Update documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~25x per month
+- Files: 
+
+---
+id: rudyprasetiya-portfolio-workflow-content-section-update
+trigger: "when doing content section update"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/asfalanoij/rudyprasetiya-portfolio
+---
+
+# Rudyprasetiya Portfolio Workflow Content Section Update
+
+## Action
+
+Follow the content-section-update workflow:
+1. Edit index.html to add or update the relevant section (Experience, Projects, Skills, About, etc.)
+2. Optionally update js/main.js if interactive behavior or dynamic content is needed (e.g., expandable cards, typing animation).
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: index.html, js/main.js
+
+---
+id: rudyprasetiya-portfolio-workflow-visual-style-enhancement
+trigger: "when doing visual style enhancement"
+confidence: 0.55
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/asfalanoij/rudyprasetiya-portfolio
+---
+
+# Rudyprasetiya Portfolio Workflow Visual Style Enhancement
+
+## Action
+
+Follow the visual-style-enhancement workflow:
+1. Edit css/style.css to add or update styles, animations, or classes.
+2. Edit index.html to remove inline styles, apply new classes, or update structure for styling.
+3. Optionally update js/main.js if script-driven visual effects are involved.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~1x per month
+- Files: css/style.css, index.html, js/main.js
+
+---
+id: rudyprasetiya-portfolio-workflow-security-hardening-and-metadata-update
+trigger: "when doing security hardening and metadata update"
+confidence: 0.55
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/asfalanoij/rudyprasetiya-portfolio
+---
+
+# Rudyprasetiya Portfolio Workflow Security Hardening And Metadata Update
+
+## Action
+
+Follow the security-hardening-and-metadata-update workflow:
+1. Edit .htaccess to update security headers or server settings.
+2. Edit index.html to update favicon, contact info, or add metadata (e.g., visitor counter).
+3. Optionally update js/main.js for dynamic metadata or counters.
+4. Optionally update backend files (e.g., contact.php) for sanitization or validation.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~1x per month
+- Files: .htaccess, index.html, js/main.js
+
+---
+id: rudyprasetiya-portfolio-workflow-backend-feature-addition-or-fix
+trigger: "when doing backend feature addition or fix"
+confidence: 0.55
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/asfalanoij/rudyprasetiya-portfolio
+---
+
+# Rudyprasetiya Portfolio Workflow Backend Feature Addition Or Fix
+
+## Action
+
+Follow the backend-feature-addition-or-fix workflow:
+1. Edit contact.php to add new logic, validation, or fix bugs.
+2. Edit js/main.js to update frontend logic for the backend feature.
+3. Optionally update index.html to connect frontend to backend.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~1x per month
+- Files: contact.php, js/main.js, index.html
+
+---
+id: rudyprasetiya-portfolio-instinct-file-naming
+trigger: "When creating a new file"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: asfalanoij/rudyprasetiya-portfolio
+---
+
+# Rudyprasetiya Portfolio Instinct File Naming
+
+## Action
+
+Name the file using camelCase.
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.files
+
+---
+id: rudyprasetiya-portfolio-instinct-function-naming
+trigger: "When defining a new function"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: asfalanoij/rudyprasetiya-portfolio
+---
+
+# Rudyprasetiya Portfolio Instinct Function Naming
+
+## Action
+
+Name the function using camelCase.
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.functions
+
+---
+id: rudyprasetiya-portfolio-instinct-class-naming
+trigger: "When defining a new class"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: asfalanoij/rudyprasetiya-portfolio
+---
+
+# Rudyprasetiya Portfolio Instinct Class Naming
+
+## Action
+
+Name the class using PascalCase.
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.classes
+
+---
+id: rudyprasetiya-portfolio-instinct-constant-naming
+trigger: "When defining a constant"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: asfalanoij/rudyprasetiya-portfolio
+---
+
+# Rudyprasetiya Portfolio Instinct Constant Naming
+
+## Action
+
+Name the constant using SCREAMING_SNAKE_CASE.
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.constants
+
+---
+id: rudyprasetiya-portfolio-instinct-import-style
+trigger: "When importing modules"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: asfalanoij/rudyprasetiya-portfolio
+---
+
+# Rudyprasetiya Portfolio Instinct Import Style
+
+## Action
+
+Use relative import paths.
+
+## Evidence
+
+- Pattern in codeStyle.importStyle
+
+---
+id: rudyprasetiya-portfolio-instinct-export-style
+trigger: "When exporting modules or functions"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: asfalanoij/rudyprasetiya-portfolio
+---
+
+# Rudyprasetiya Portfolio Instinct Export Style
+
+## Action
+
+Use named exports.
+
+## Evidence
+
+- Pattern in codeStyle.exportStyle
+
+---
+id: rudyprasetiya-portfolio-instinct-try-catch-errors
+trigger: "When handling errors in JavaScript code"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: asfalanoij/rudyprasetiya-portfolio
+---
+
+# Rudyprasetiya Portfolio Instinct Try Catch Errors
+
+## Action
+
+Use try-catch blocks for error handling.
+
+## Evidence
+
+- Pattern in errorHandling.style
+
+---
+id: rudyprasetiya-portfolio-instinct-commit-format
+trigger: "When writing a git commit message"
+confidence: 0.95
+domain: git
+source: repo-analysis
+source_repo: asfalanoij/rudyprasetiya-portfolio
+---
+
+# Rudyprasetiya Portfolio Instinct Commit Format
+
+## Action
+
+Use the Conventional Commits format with 'feat' or 'fix' prefixes.
+
+## Evidence
+
+- Seen in commit: 'feat: add Services section, available badge, sticky WhatsApp hire button'
+- Seen in commit: 'fix: harden security headers, extract inline styles, fix email header injection'
+
+---
+id: rudyprasetiya-portfolio-instinct-commit-length
+trigger: "When writing a git commit message"
+confidence: 0.7
+domain: git
+source: repo-analysis
+source_repo: asfalanoij/rudyprasetiya-portfolio
+---
+
+# Rudyprasetiya Portfolio Instinct Commit Length
+
+## Action
+
+Keep commit messages concise, around 69 characters on average.
+
+## Evidence
+
+- Pattern in commits.averageLength
+
+---
+id: rudyprasetiya-portfolio-instinct-content-section-update
+trigger: "When someone wants to add new experience, projects, skills, or update personal/professional details"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: asfalanoij/rudyprasetiya-portfolio
+---
+
+# Rudyprasetiya Portfolio Instinct Content Section Update
+
+## Action
+
+Edit index.html to add or update the relevant section; optionally update js/main.js if interactive behavior is needed.
+
+## Evidence
+
+- Workflow: content-section-update
+- Seen in commits: 'feat: major content update — Telin role, 7 projects, skills restack, cert refresh'
+
+---
+id: rudyprasetiya-portfolio-instinct-visual-style-enhancement
+trigger: "When someone wants to improve or refactor the look and feel of the site, or add new visual elements"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: asfalanoij/rudyprasetiya-portfolio
+---
+
+# Rudyprasetiya Portfolio Instinct Visual Style Enhancement
+
+## Action
+
+Edit css/style.css to add or update styles; edit index.html to remove inline styles or apply new classes; optionally update js/main.js for visual effects.
+
+## Evidence
+
+- Workflow: visual-style-enhancement
+- Seen in commit: 'fix: harden security headers, extract inline styles, fix email header injection'
+
+---
+id: rudyprasetiya-portfolio-instinct-security-hardening
+trigger: "When someone wants to improve site security, update meta assets, or change contact/branding info"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: asfalanoij/rudyprasetiya-portfolio
+---
+
+# Rudyprasetiya Portfolio Instinct Security Hardening
+
+## Action
+
+Edit .htaccess for security headers; update index.html for favicon/contact/meta; optionally update js/main.js or contact.php for validation or counters.
+
+## Evidence
+
+- Workflow: security-hardening-and-metadata-update
+- Seen in commit: 'fix: harden security headers, extract inline styles, fix email header injection'
+
+---
+id: rudyprasetiya-portfolio-instinct-backend-feature-addition-or-fix
+trigger: "When someone wants to add a new backend feature or fix an existing backend bug (e.g., contact form, email handling)"
+confidence: 0.8
+domain: workflow
+source: repo-analysis
+source_repo: asfalanoij/rudyprasetiya-portfolio
+---
+
+# Rudyprasetiya Portfolio Instinct Backend Feature Addition Or Fix
+
+## Action
+
+Edit contact.php to add logic or fix bugs; update js/main.js for frontend logic; optionally update index.html to connect frontend and backend.
+
+## Evidence
+
+- Workflow: backend-feature-addition-or-fix
+- Seen in commit: 'feat: add contact.php backend with validation and rate-limit'
+
