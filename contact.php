@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 /* ── Sanitize & validate inputs ────────────────────── */
-$name    = strip_tags(trim($_POST['name']    ?? ''));
+$name    = preg_replace('/[\r\n\t]/', ' ', strip_tags(trim($_POST['name'] ?? '')));
 $email   = filter_var(trim($_POST['email']   ?? ''), FILTER_VALIDATE_EMAIL);
 $subject = strip_tags(trim($_POST['subject'] ?? 'No subject'));
 $message = strip_tags(trim($_POST['message'] ?? ''));

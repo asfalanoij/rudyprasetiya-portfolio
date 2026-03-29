@@ -1,217 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rudy Prasetiya, CDSP, CC, QRMP | GRC &amp; RegTech Professional</title>
-  <meta name="description" content="Rudy Prasetiya — 16+ years in GRC, cybersecurity &amp; AI governance. Building RegTech tools: RAG chatbots, compliance dashboards, ERM systems. Indonesia." />
-  <meta name="keywords" content="GRC, RegTech, Internal Audit, Risk Management, Cybersecurity, AI Governance, RAG, Compliance, ISO 27001, NIST, BPKP, Telin, Indonesia, CDSP, CC, QRMP" />
-  <meta property="og:title" content="Rudy Prasetiya | GRC &amp; RegTech Professional" />
-  <meta property="og:description" content="16+ years in GRC, cybersecurity &amp; AI governance. Building tools that close the gap between compliance and code." />
+  <title>Rudy Prasetiya, CDSP, CC, QRMP | IT GRC, Internal Auditor, and RegTech Builder</title>
+  <meta name="description"
+    content="Rudy Prasetiya — 16+ years in GRC, Policy Analysis, Cybersecurity &amp; AI governance. Building RegTech tools: RAG chatbots, compliance dashboards, ERM systems. Indonesia." />
+  <meta name="keywords"
+    content="GRC, RegTech, Internal Audit, Risk Management, Cybersecurity, AI Governance, RAG, Compliance, ISO 27001, NIST, BPKP, Telin, Indonesia, CDSP, CC, QRMP" />
+  <meta property="og:title" content="Rudy Prasetiya | IT GRC and RegTech Builder" />
+  <meta property="og:description"
+    content="16+ years in GRC, Policy Analysis, Cybersecurity &amp; AI governance. Building tools that close the gap between compliance and code." />
   <meta property="og:url" content="https://rudyprasetiya.com" />
   <meta property="og:type" content="website" />
   <link rel="icon" type="image/png" href="assets/icons/rudy.png" />
   <link rel="apple-touch-icon" href="assets/icons/rudy.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
-  <style>
-    /* ── Project Cards ────────────────────────────── */
-    .proj-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.25rem;
-    }
-    .proj-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(0,212,255,0.1);
-      border-radius: 12px;
-      overflow: hidden;
-      transition: border-color 0.3s, box-shadow 0.3s;
-    }
-    .proj-card[data-expanded="true"] {
-      border-color: rgba(0,212,255,0.35);
-      box-shadow: 0 0 24px rgba(0,212,255,0.07);
-    }
-    .proj-card__header {
-      padding: 1.4rem 1.5rem 1.2rem;
-      cursor: pointer;
-      user-select: none;
-    }
-    .proj-card__header:hover { background: rgba(0,212,255,0.04); }
-    .proj-card__meta {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      margin-bottom: 0.6rem;
-    }
-    .proj-card__domain {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.65rem;
-      font-weight: 500;
-      color: #00d4ff;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-    .proj-badge {
-      font-size: 0.6rem;
-      font-weight: 600;
-      padding: 0.15rem 0.5rem;
-      border-radius: 20px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-    .proj-badge--live { background: rgba(0,255,179,0.15); color: #00ffb3; border: 1px solid rgba(0,255,179,0.3); }
-    .proj-badge--wip  { background: rgba(255,140,66,0.15); color: #ff8c42; border: 1px solid rgba(255,140,66,0.3); }
-    .proj-badge--gh   { background: rgba(123,47,190,0.2); color: #b47ffa; border: 1px solid rgba(123,47,190,0.35); }
-    .proj-badge--internal { background: rgba(255,255,255,0.07); color: #9ca3af; border: 1px solid rgba(255,255,255,0.1); }
-    .proj-card__title {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: #f1f5f9;
-      margin: 0 0 0.5rem;
-      line-height: 1.3;
-    }
-    .proj-card__why {
-      font-size: 0.85rem;
-      color: #94a3b8;
-      line-height: 1.55;
-      margin: 0 0 0.9rem;
-    }
-    .proj-card__toggle-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 0.5rem;
-    }
-    .proj-toggle-icon {
-      color: #00d4ff;
-      font-size: 0.75rem;
-      transition: transform 0.25s ease;
-    }
-    .proj-card__body {
-      display: none;
-      padding: 0 1.5rem 1.4rem;
-      border-top: 1px solid rgba(0,212,255,0.08);
-    }
-    .proj-card[data-expanded="true"] .proj-card__body { display: block; }
-    .proj-card__detail {
-      font-size: 0.85rem;
-      color: #94a3b8;
-      line-height: 1.6;
-      margin: 1rem 0 1rem;
-    }
-    .proj-card__links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-top: 1rem;
-    }
-    .proj-card__links .btn-sm {
-      font-size: 0.78rem;
-      padding: 0.35rem 0.9rem;
-    }
-    @media (max-width: 640px) {
-      .proj-grid { grid-template-columns: 1fr; }
-    }
-
-    /* ── Available dot pulse ─────────────────────── */
-    @keyframes pulse-dot {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50%       { opacity: 0.5; transform: scale(1.4); }
-    }
-
-    /* ── Services Section ────────────────────────── */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-    .svc-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(0,212,255,0.12);
-      border-radius: 14px;
-      padding: 2rem 1.75rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      transition: border-color 0.3s, box-shadow 0.3s;
-    }
-    .svc-card:hover {
-      border-color: rgba(0,212,255,0.35);
-      box-shadow: 0 0 28px rgba(0,212,255,0.07);
-    }
-    .svc-card__icon {
-      width: 48px; height: 48px;
-      background: rgba(0,212,255,0.08);
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.3rem; color: #00d4ff;
-    }
-    .svc-card__title { font-size: 1.1rem; font-weight: 700; color: #f1f5f9; margin: 0; }
-    .svc-card__desc  { font-size: 0.85rem; color: #94a3b8; line-height: 1.6; margin: 0; flex: 1; }
-    .svc-card__scope { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.35rem; }
-    .svc-card__scope li { font-size: 0.78rem; color: #64748b; display: flex; align-items: center; gap: 0.5rem; }
-    .svc-card__scope li::before { content: '→'; color: #00d4ff; font-weight: 600; }
-    .svc-card__cta {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: rgba(37,211,102,0.12);
-      color: #25d366;
-      border: 1px solid rgba(37,211,102,0.3);
-      border-radius: 8px;
-      padding: 0.55rem 1.1rem;
-      font-size: 0.82rem; font-weight: 600;
-      text-decoration: none;
-      transition: background 0.2s, border-color 0.2s;
-      width: fit-content;
-    }
-    .svc-card__cta:hover { background: rgba(37,211,102,0.22); border-color: rgba(37,211,102,0.5); }
-
-    /* ── Sticky Hire Me Button ───────────────────── */
-    .sticky-hire {
-      position: fixed;
-      bottom: 2rem; right: 2rem;
-      z-index: 999;
-      display: flex; align-items: center; gap: 0.5rem;
-      background: #25d366;
-      color: #fff;
-      border: none; border-radius: 50px;
-      padding: 0.75rem 1.4rem;
-      font-size: 0.88rem; font-weight: 700;
-      text-decoration: none;
-      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
-      cursor: pointer;
-      opacity: 0; pointer-events: none;
-      transform: translateY(16px);
-      transition: opacity 0.3s, transform 0.3s;
-    }
-    .sticky-hire.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
-    .sticky-hire i { font-size: 1.1rem; }
-    @media (max-width: 640px) {
-      .sticky-hire { bottom: 1.2rem; right: 1.2rem; padding: 0.65rem 1.1rem; font-size: 0.82rem; }
-      .services-grid { grid-template-columns: 1fr; }
-    }
-  </style>
 </head>
+
 <body>
 
   <!-- ── Navigation ─────────────────────────────── -->
   <nav class="nav" id="nav">
     <div class="nav__inner">
-      <a href="#hero" class="nav__logo" style="font-family:'JetBrains Mono',monospace;font-size:0.85rem;letter-spacing:-0.02em;">
+      <a href="#hero" class="nav__logo"
+        style="font-family:'JetBrains Mono',monospace;font-size:0.85rem;letter-spacing:-0.02em;">
         rudyprasetiya.com
       </a>
       <ul class="nav__links">
-        <li><a href="#about"      class="nav__link">About</a></li>
-        <li><a href="#services"   class="nav__link">Services</a></li>
-        <li><a href="#expertise"  class="nav__link">Expertise</a></li>
+        <li><a href="#about" class="nav__link">About</a></li>
+        <li><a href="#services" class="nav__link">Services</a></li>
+        <li><a href="#expertise" class="nav__link">Expertise</a></li>
         <li><a href="#experience" class="nav__link">Experience</a></li>
-        <li><a href="#projects"   class="nav__link">Projects</a></li>
-        <li><a href="#skills"     class="nav__link">Skills</a></li>
-        <li><a href="#contact"    class="nav__link">Contact</a></li>
+        <li><a href="#projects" class="nav__link">Projects</a></li>
+        <li><a href="#skills" class="nav__link">Skills</a></li>
+        <li><a href="#contact" class="nav__link">Contact</a></li>
       </ul>
       <a href="#contact" class="btn btn-outline nav__cta">Let's Connect</a>
       <button class="nav__burger" id="burger" aria-label="Menu">
@@ -221,13 +51,13 @@
   </nav>
 
   <div class="drawer" id="drawer">
-    <a href="#about"      class="drawer__link">About</a>
-    <a href="#services"   class="drawer__link">Services</a>
-    <a href="#expertise"  class="drawer__link">Expertise</a>
+    <a href="#about" class="drawer__link">About</a>
+    <a href="#services" class="drawer__link">Services</a>
+    <a href="#expertise" class="drawer__link">Expertise</a>
     <a href="#experience" class="drawer__link">Experience</a>
-    <a href="#projects"   class="drawer__link">Projects</a>
-    <a href="#skills"     class="drawer__link">Skills</a>
-    <a href="#contact"    class="drawer__link">Contact</a>
+    <a href="#projects" class="drawer__link">Projects</a>
+    <a href="#skills" class="drawer__link">Skills</a>
+    <a href="#contact" class="drawer__link">Contact</a>
   </div>
 
   <!-- ── Hero ───────────────────────────────────── -->
@@ -237,7 +67,7 @@
     <div class="hero__content">
       <div class="hero__pill">
         <span class="hero__pill-dot"></span>
-        GRC Professional &middot; RegTech Builder &middot; Indonesia
+        IT GRC and RegTech Builder &middot; Indonesia
       </div>
       <p class="hero__eyebrow">Hello, I'm</p>
       <h1 class="hero__name">
@@ -251,25 +81,24 @@
         <span class="cred-highlight">QRMP</span>
       </div>
       <div class="hero__role">
-        <span class="hero__role-static">Internal Audit &amp;&nbsp;</span>
+        <span class="hero__role-static">Internal Auditor &amp;&nbsp;</span>
         <span class="hero__role-type" id="type-el"></span>
         <span class="hero__cursor" aria-hidden="true">|</span>
       </div>
       <p class="hero__tagline">
-        16+ years in GRC, cybersecurity &amp; AI governance —<br class="hide-mobile" />
+        16+ years in Internal Audit, GRC, Policy Analysis, Cybersecurity &amp; AI governance —<br class="hide-mobile" />
         now building tools that close the gap between compliance and code.
       </p>
       <div class="hero__actions">
-        <a href="#services" class="btn btn-primary"><i class="fas fa-briefcase"></i> Hire Me</a>
-        <a href="https://wa.me/628114828024?text=Hi%20Rudy%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener" class="btn btn-ghost">
+        <a href="#services" class="btn btn-primary"><i class="fas fa-briefcase"></i> Consulting</a>
+        <a href="https://wa.me/628114828024?text=Hi%20Rudy%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project."
+          target="_blank" rel="noopener" class="btn btn-ghost">
           <i class="fab fa-whatsapp"></i> WhatsApp
         </a>
       </div>
-      <div style="margin-top:1rem;">
-        <span style="display:inline-flex;align-items:center;gap:0.45rem;font-size:0.78rem;color:#00ffb3;font-family:'JetBrains Mono',monospace;opacity:0.9;">
-          <span style="width:8px;height:8px;background:#00ffb3;border-radius:50%;display:inline-block;animation:pulse-dot 2s infinite;"></span>
-          Available for remote part-time consulting
-        </span>
+      <div class="hero__available">
+        <span class="hero__available-dot"></span>
+        Available for remote part-time consulting
       </div>
       <div class="hero__stats">
         <div class="hero__stat">
@@ -305,34 +134,51 @@
       <div class="about__grid">
         <div class="about__visual">
           <div class="about__avatar-wrap">
-            <div class="about__avatar" style="padding:0;overflow:hidden;"><img src="assets/icons/pic_owe2.jpg" alt="Rudy Prasetiya" style="width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:50%;" /></div>
+            <div class="about__avatar" style="padding:0;overflow:hidden;"><img src="assets/icons/pic_owe2.jpg"
+                alt="Rudy Prasetiya"
+                style="width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:50%;" /></div>
             <div class="about__avatar-ring"></div>
             <div class="about__avatar-ring about__avatar-ring--2"></div>
-            <div class="about__badge"><i class="fas fa-shield-halved"></i> GRC &amp; RegTech</div>
+            <div class="about__badge"><i class="fas fa-shield-halved"></i> IT GRC and RegTech Builder</div>
           </div>
           <div class="about__socials">
-            <a href="https://www.linkedin.com/in/rudyprasetiya" target="_blank" rel="noopener" class="social-btn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://github.com/asfalanoij" target="_blank" rel="noopener" class="social-btn" title="GitHub"><i class="fab fa-github"></i></a>
-            <a href="mailto:prasetiyarudy@gmail.com" class="social-btn" title="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/rudyprasetiya" target="_blank" rel="noopener" class="social-btn"
+              title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/asfalanoij" target="_blank" rel="noopener" class="social-btn" title="GitHub"><i
+                class="fab fa-github"></i></a>
+            <a href="mailto:prasetiyarudy@gmail.com" class="social-btn" title="Email"><i
+                class="fas fa-envelope"></i></a>
           </div>
         </div>
         <div class="about__content">
           <div class="section-label">About Me</div>
           <h2 class="section-title">
-            GRC Practitioner Who<br />
+            Internal Audit &amp; GRC Practitioner Who<br />
             <span class="text-accent">Also Ships Code</span>
           </h2>
           <p class="about__text">
-            I'm <strong>Rudy Prasetiya</strong> — Manager of Audit Planning &amp; Development at Telin, and a builder of RegTech tools. My practice spans internal audit, IT governance, digital forensics, and cybersecurity — now increasingly expressed through software: RAG chatbots, compliance dashboards, and AI-assisted audit pipelines.
+            I'm <strong>Rudy Prasetiya</strong> — Manager of Audit Planning &amp; Development at Telin, and a builder of
+            RegTech tools. My practice spans internal audit, IT governance, digital forensics, and cybersecurity — now
+            increasingly expressed through software: RAG chatbots, compliance dashboards, and AI-assisted audit
+            pipelines.
           </p>
           <p class="about__text">
-            My academic foundation — <strong>PKN-STAN</strong> (Accounting), <strong>University of Indonesia</strong> (Scientific Economics), <strong>International University of Japan</strong> (International Development) — underpins how I connect policy, economics, and technical risk across audit, governance, and technology domains.
+            My academic foundations - <strong>PKN-STAN</strong> (Accounting), <strong>University of Indonesia</strong>
+            (Scientific Economics), <strong>International University of Japan</strong> (International Development) —
+            underpins how I connect policy, economics, and technical risk across audit, governance, and technology
+            domains.
           </p>
           <ul class="about__checks">
-            <li><i class="fas fa-circle-check"></i> Manager, Audit Planning &amp; Development — Telin (Dec 2025 – Present)</li>
-            <li><i class="fas fa-circle-check"></i> Building: NIST 800-53 chatbot, compliance-as-code, ERM &amp; audit dashboards</li>
-            <li><i class="fas fa-circle-check"></i> CDSP &middot; CC (ISC2) &middot; QRMP certified &middot; IELTS 7.5</li>
-            <li><i class="fas fa-circle-check"></i> Published researcher — income inequality &amp; economic complexity <a href="https://doi.org/10.36574/jpp.v5i3.213" target="_blank" rel="noopener">(DOI)</a></li>
+            <li><i class="fas fa-circle-check"></i> Manager, Audit Planning &amp; Development — Telin (Dec 2025 –
+              Present)</li>
+            <li><i class="fas fa-circle-check"></i> Building: NIST 800-53 chatbot, compliance-as-code, ERM &amp; audit
+              dashboards</li>
+            <li><i class="fas fa-circle-check"></i> Data Science (CDSP) &middot; Cybersecurity (CC) &middot; Risk
+              Management (QRMP) certified &middot; IELTS 7.5
+            </li>
+            <li><i class="fas fa-circle-check"></i> Published researcher — income inequality &amp; economic complexity
+              <a href="https://doi.org/10.36574/jpp.v5i3.213" target="_blank" rel="noopener">(DOI)</a>
+            </li>
           </ul>
           <div class="about__cta">
             <a href="#projects" class="btn btn-primary">See My Projects</a>
@@ -351,21 +197,24 @@
       <div class="section-header">
         <div class="section-label">Work With Me</div>
         <h2 class="section-title">Services &amp; <span class="text-accent">Availability</span></h2>
-        <p class="section-sub">Available for remote part-time consulting. Tell me what you're working on and let's talk.</p>
+        <p class="section-sub">Available for remote part-time consulting. Tell me what you're working on and let's talk.
+        </p>
       </div>
       <div class="services-grid">
 
         <div class="svc-card reveal">
           <div class="svc-card__icon"><i class="fas fa-magnifying-glass-chart"></i></div>
           <h3 class="svc-card__title">GRC Consulting</h3>
-          <p class="svc-card__desc">Risk-based audit planning, ERM frameworks, and compliance gap assessments — grounded in 16 years of government and financial sector practice.</p>
+          <p class="svc-card__desc">Risk-based audit planning, ERM frameworks, and compliance gap assessments — grounded
+            in 16 years of government and financial sector practice.</p>
           <ul class="svc-card__scope">
             <li>Internal audit planning &amp; design</li>
             <li>ERM / ISO 31000 / COSO framework</li>
             <li>Compliance gap assessment (OJK, UU PDP, ISO 37301)</li>
             <li>Audit committee advisory</li>
           </ul>
-          <a href="https://wa.me/628114828024?text=Hi%20Rudy%2C%20I%27m%20interested%20in%20GRC%20consulting%20services." target="_blank" rel="noopener" class="svc-card__cta">
+          <a href="https://wa.me/628114828024?text=Hi%20Rudy%2C%20I%27m%20interested%20in%20GRC%20consulting%20services."
+            target="_blank" rel="noopener" class="svc-card__cta">
             <i class="fab fa-whatsapp"></i> Let's Talk
           </a>
         </div>
@@ -373,14 +222,16 @@
         <div class="svc-card reveal">
           <div class="svc-card__icon"><i class="fas fa-shield-halved"></i></div>
           <h3 class="svc-card__title">Cybersecurity Assessment</h3>
-          <p class="svc-card__desc">Vulnerability assessments, OSINT-based exposure mapping, and IT audit reviews — helping organisations understand and close their real attack surface.</p>
+          <p class="svc-card__desc">Vulnerability assessments, OSINT-based exposure mapping, and IT audit reviews —
+            helping organisations understand and close their real attack surface.</p>
           <ul class="svc-card__scope">
             <li>Vulnerability assessment (VA)</li>
             <li>OSINT / Shodan / BGP exposure mapping</li>
             <li>ITGC &amp; ISO 27001:2022 audit</li>
             <li>Security posture advisory</li>
           </ul>
-          <a href="https://wa.me/628114828024?text=Hi%20Rudy%2C%20I%27m%20interested%20in%20a%20cybersecurity%20assessment." target="_blank" rel="noopener" class="svc-card__cta">
+          <a href="https://wa.me/628114828024?text=Hi%20Rudy%2C%20I%27m%20interested%20in%20a%20cybersecurity%20assessment."
+            target="_blank" rel="noopener" class="svc-card__cta">
             <i class="fab fa-whatsapp"></i> Let's Talk
           </a>
         </div>
@@ -388,14 +239,16 @@
         <div class="svc-card reveal">
           <div class="svc-card__icon"><i class="fas fa-robot"></i></div>
           <h3 class="svc-card__title">RegTech Tool Building</h3>
-          <p class="svc-card__desc">Custom compliance dashboards, RAG chatbots for regulatory documents, and AI-assisted audit pipelines — built by someone who also does the auditing.</p>
+          <p class="svc-card__desc">Custom compliance dashboards, RAG chatbots for regulatory documents, and AI-assisted
+            audit pipelines — built by someone who also does the auditing.</p>
           <ul class="svc-card__scope">
             <li>Compliance-as-Code dashboards</li>
             <li>RAG chatbots for regulatory docs</li>
             <li>Audit automation (Python / NLP)</li>
             <li>ERM &amp; risk monitoring tools</li>
           </ul>
-          <a href="https://wa.me/628114828024?text=Hi%20Rudy%2C%20I%27m%20interested%20in%20RegTech%20tool%20development." target="_blank" rel="noopener" class="svc-card__cta">
+          <a href="https://wa.me/628114828024?text=Hi%20Rudy%2C%20I%27m%20interested%20in%20RegTech%20tool%20development."
+            target="_blank" rel="noopener" class="svc-card__cta">
             <i class="fab fa-whatsapp"></i> Let's Talk
           </a>
         </div>
@@ -410,7 +263,8 @@
       <div class="section-header">
         <div class="section-label">What I Do</div>
         <h2 class="section-title">Core <span class="text-accent">Expertise</span></h2>
-        <p class="section-sub">Five domains — practitioner-level depth, increasingly expressed through working software</p>
+        <p class="section-sub">Five domains — practitioner-level depth, increasingly expressed through working software
+        </p>
       </div>
       <div class="expertise-grid">
 
@@ -419,9 +273,18 @@
           <div class="exp-card__num">01</div>
           <div class="exp-card__icon"><i class="fas fa-magnifying-glass-chart"></i></div>
           <h3 class="exp-card__title">Internal Audit</h3>
-          <p class="exp-card__desc">Risk-based audit programs aligned with IIA standards and COSO-ERM. 16 years leading audit functions across government and financial sectors — ICOFR, probity, ESG/SDG, thematic audit design, and audit automation using Python and NLP.</p>
+          <p class="exp-card__desc">Risk-based audit programs aligned with IIA standards and COSO-ERM. 16 years leading
+            audit functions across government and financial sectors — ICOFR, probity, ESG/SDG, thematic audit design,
+            and audit automation using Python and NLP.</p>
           <ul class="exp-card__tags">
-            <li>Risk-Based Audit</li><li>COSO-ERM</li><li>ICOFR</li><li>IIA Standards</li><li>Audit Automation</li><li>Public Policy Evaluation</li><li>Causal Inference</li><li>ESG &amp; SDGs</li>
+            <li>Risk-Based Audit</li>
+            <li>COSO-ERM</li>
+            <li>ICOFR</li>
+            <li>IIA Standards</li>
+            <li>Audit Automation</li>
+            <li>Public Policy Evaluation</li>
+            <li>Causal Inference</li>
+            <li>ESG &amp; SDGs</li>
           </ul>
         </div>
 
@@ -430,9 +293,16 @@
           <div class="exp-card__num">02</div>
           <div class="exp-card__icon"><i class="fas fa-triangle-exclamation"></i></div>
           <h3 class="exp-card__title">Risk Management</h3>
-          <p class="exp-card__desc">Enterprise risk modelling and ERM system design. Bridges public policy, IFRS 9, game theory, and risk velocity — built into an ERM dashboard simulation for Pupuk Indonesia Holding Company. Conducted risk maturity assessment for a payment-tech SOE subsidiary and composed a strategic roadmap from 1.6 to 4.0/5.0.</p>
+          <p class="exp-card__desc">Enterprise risk modelling and ERM system design. Bridges public policy, IFRS 9, game
+            theory, and risk velocity — built into an ERM dashboard simulation for Pupuk Indonesia Holding Company.
+            Conducted risk maturity assessment for a payment-tech SOE subsidiary and composed a strategic roadmap from
+            1.6 to 4.0/5.0.</p>
           <ul class="exp-card__tags">
-            <li>ERM / COSO</li><li>ISO 31000</li><li>IFRS 9</li><li>Risk Velocity</li><li>Game Theory</li>
+            <li>ERM / COSO</li>
+            <li>ISO 31000</li>
+            <li>IFRS 9</li>
+            <li>Risk Velocity</li>
+            <li>Game Theory</li>
           </ul>
         </div>
 
@@ -441,9 +311,15 @@
           <div class="exp-card__num">03</div>
           <div class="exp-card__icon"><i class="fas fa-shield-halved"></i></div>
           <h3 class="exp-card__title">Cybersecurity</h3>
-          <p class="exp-card__desc">Vulnerability assessments, digital forensics, OSINT-based exposure mapping. Diagnosed attack surface via VA at BPKP; proposed feasible actions to close 55% of identified attack vectors (critical and high). Currently supporting Telin with BGP/Shodan-based infrastructure monitoring.</p>
+          <p class="exp-card__desc">Vulnerability assessments, digital forensics, OSINT-based exposure mapping.
+            Diagnosed attack surface via VA at BPKP; proposed feasible actions to close 55% of identified attack vectors
+            (critical and high). Currently supporting Telin with BGP/Shodan-based infrastructure monitoring.</p>
           <ul class="exp-card__tags">
-            <li>ISO 27001:2022</li><li>NIST CSF 2.0</li><li>Digital Forensics</li><li>OSINT</li><li>Kali Linux</li>
+            <li>ISO 27001:2022</li>
+            <li>NIST CSF 2.0</li>
+            <li>Digital Forensics</li>
+            <li>OSINT</li>
+            <li>Kali Linux</li>
           </ul>
         </div>
 
@@ -452,9 +328,16 @@
           <div class="exp-card__num">04</div>
           <div class="exp-card__icon"><i class="fas fa-scale-balanced"></i></div>
           <h3 class="exp-card__title">IT GRC &amp; Compliance</h3>
-          <p class="exp-card__desc">OJK, BUMN, UU PDP, ISO 37301, COBIT-2019, KYC/AML — applied, not theoretical. Built a Compliance-as-Code platform (C3) for a payment company and a NIST 800-53 chatbot to make technical controls accessible to non-specialists. Supporting BPK and US regulators on performance audit and compliance-related engagements at Telin.</p>
+          <p class="exp-card__desc">OJK, BUMN, UU PDP, ISO 37301, COBIT-2019, KYC/AML — applied, not theoretical. Built
+            a Compliance-as-Code platform (C3) for a payment company and a NIST 800-53 chatbot to make technical
+            controls accessible to non-specialists. Supporting BPK and US regulators on performance audit and
+            compliance-related engagements at Telin.</p>
           <ul class="exp-card__tags">
-            <li>OJK Compliance</li><li>ISO 37301</li><li>COBIT-2019</li><li>Compliance-as-Code</li><li>UU PDP</li>
+            <li>OJK Compliance</li>
+            <li>ISO 37301</li>
+            <li>COBIT-2019</li>
+            <li>Compliance-as-Code</li>
+            <li>UU PDP</li>
           </ul>
         </div>
 
@@ -463,9 +346,18 @@
           <div class="exp-card__num">05</div>
           <div class="exp-card__icon"><i class="fas fa-robot"></i></div>
           <h3 class="exp-card__title">AI Governance &amp; RegTech Engineering</h3>
-          <p class="exp-card__desc">Designing governance frameworks for AI adoption while simultaneously building AI tools for GRC use cases. Structured-first RAG for regulatory documents, multi-agent audit orchestration, NLP-driven audit testing, and fraud detection pipelines. CDSP certified. Exploring how agent-based architectures (The Society) can improve output quality and token efficiency in AI-assisted audit workflows.</p>
+          <p class="exp-card__desc">Designing governance frameworks for AI adoption while simultaneously building AI
+            tools for GRC use cases. Structured-first RAG for regulatory documents, multi-agent audit orchestration,
+            NLP-driven audit testing, and fraud detection pipelines. CDSP certified. Exploring how agent-based
+            architectures (The Society) can improve output quality and token efficiency in AI-assisted audit workflows.
+          </p>
           <ul class="exp-card__tags">
-            <li>RAG / Embeddings</li><li>LLM Applications</li><li>Multi-agent Systems</li><li>AI Ethics</li><li>Python / Pandas</li><li>Responsible AI</li>
+            <li>RAG / Embeddings</li>
+            <li>LLM Applications</li>
+            <li>Multi-agent Systems</li>
+            <li>AI Ethics</li>
+            <li>Python / Pandas</li>
+            <li>Responsible AI</li>
           </ul>
         </div>
 
@@ -489,7 +381,9 @@
               <div class="tl-item__left">
                 <h3 class="tl-item__role">Manager — Audit Planning &amp; Development</h3>
                 <p class="tl-item__company">
-                  <img src="assets/logos/telin.png" alt="Telin" style="height:1.1em;vertical-align:middle;margin-right:5px;border-radius:2px;" onerror="this.style.display='none'" />
+                  <img src="assets/logos/telin.png" alt="Telin"
+                    style="height:1.1em;vertical-align:middle;margin-right:5px;border-radius:2px;"
+                    onerror="this.style.display='none'" />
                   Telin &mdash; Telco, SOE &middot; Jakarta
                 </p>
               </div>
@@ -498,9 +392,14 @@
                 <span class="tl-item__current">Current</span>
               </div>
             </div>
-            <p class="tl-item__desc">Formulating risk-based internal audit plans, digital forensics investigations, and cybersecurity assessments for Telin and its subsidiaries. Supporting BPK, US regulators, and Telkom's Internal Audit as an Audit Partner. Building CACM — a Continuous Audit &amp; Compliance Monitoring dashboard to automate audit evidence collection and control tracking.</p>
+            <p class="tl-item__desc">Formulating risk-based internal audit plans, digital forensics investigations, and
+              vulnerability assessments for Telin (Python). Supporting BPK, US regulators, and Telkom's
+              Internal Audit as an Audit Partner. Building CACM — a Continuous Audit (Typescript, Supabase) &amp;
+              Compliance Monitoring
+              dashboard to automate audit evidence collection and control tracking.</p>
             <div class="tl-item__tags">
-              <span>Risk-Based Audit</span><span>Digital Forensics</span><span>Cybersecurity</span><span>Audit Partner</span><span>CACM</span>
+              <span>Risk-Based Audit</span><span>Digital Forensics</span><span>Cybersecurity</span><span>Audit
+                Partner</span><span>CACM</span>
             </div>
           </div>
         </div>
@@ -512,7 +411,9 @@
               <div class="tl-item__left">
                 <h3 class="tl-item__role">Department Head, Thematic Audit</h3>
                 <p class="tl-item__company">
-                  <img src="assets/logos/ifglife.png" alt="IFG Life" style="height:1.1em;vertical-align:middle;margin-right:5px;border-radius:2px;" onerror="this.style.display='none'" />
+                  <img src="assets/logos/ifglife.png" alt="IFG Life"
+                    style="height:1.1em;vertical-align:middle;margin-right:5px;border-radius:2px;"
+                    onerror="this.style.display='none'" />
                   IFG Life &mdash; Insurance, SOE &middot; Jakarta
                 </p>
               </div>
@@ -520,9 +421,13 @@
                 <span><i class="fas fa-calendar-days"></i> Dec 2024 &ndash; Nov 2025</span>
               </div>
             </div>
-            <p class="tl-item__desc">Led enterprise-wide thematic audit across claims, GRC, data governance, procurement, and ITGC. Redesigned the whistleblowing system eliminating 81% of friction points. Independent audit oversight for ISO 9001, 37301 &amp; 27001:2022 certification.</p>
+            <p class="tl-item__desc">Led enterprise-wide thematic audit across claims, data governance,
+              asset management, and ITGC. Proposed whistleblowing system revamp, eliminating 81% of friction points (UX
+              research).
+              Independent audit oversight for ISO 9001, 37301 &amp; 27001:2022 certification.</p>
             <div class="tl-item__tags">
-              <span>ISO 27001:2022</span><span>Forensic Audit</span><span>GRC</span><span>ISO 37301</span><span>ITGC</span>
+              <span>ISO 27001:2022</span><span>Forensic Audit</span><span>IT GRC</span><span>ISO
+                37301</span><span>ITGC</span>
             </div>
           </div>
         </div>
@@ -532,20 +437,31 @@
           <div class="tl-item__card">
             <div class="tl-item__header">
               <div class="tl-item__left">
-                <h3 class="tl-item__role">Government Internal Auditor &middot; IT Auditor &middot; Cybersecurity Analyst</h3>
+                <h3 class="tl-item__role">Government Internal Auditor &middot; IT Auditor &middot; Cybersecurity Analyst
+                </h3>
                 <p class="tl-item__company">
-                  <img src="assets/logos/bpkp.png" alt="BPKP" style="height:1.1em;vertical-align:middle;margin-right:5px;border-radius:2px;" onerror="this.style.display='none'" />
+                  <img src="assets/logos/bpkp.png" alt="BPKP"
+                    style="height:1.1em;vertical-align:middle;margin-right:5px;border-radius:2px;"
+                    onerror="this.style.display='none'" />
                   BPKP &mdash; Finance and Development Supervisory Agency &middot; Government
                 </p>
-                <p class="tl-item__company" style="margin-top:0.15rem;font-size:0.78rem;opacity:0.75;">Also: Lecturer &middot; Subject Matter Expert &middot; Instructional Designer &mdash; GIA Corporate University</p>
+                <p class="tl-item__company" style="margin-top:0.15rem;font-size:0.78rem;opacity:0.75;">Also: Lecturer
+                  &middot; Subject Matter Expert &middot; Instructional Designer &mdash; GIA Corporate University</p>
               </div>
               <div class="tl-item__meta">
                 <span><i class="fas fa-calendar-days"></i> Oct 2008 &ndash; Oct 2024</span>
               </div>
             </div>
-            <p class="tl-item__desc">Sixteen years across audit, IT governance, and cybersecurity in government. Orchestrated audit programs across BPKP offices and regional postings (Batam, Papua, Jakarta). Led SIMDA E-Gov rollouts for local governments and data governance for hundreds of villages. Conducted infrastructure vulnerability assessments; proposed feasible remediation plans. Designed ADB-sponsored anti-fraud analytics training for government auditors. Built automated payment audit PoC and served as lecturer and instructional designer at GIA Corpu.</p>
+            <p class="tl-item__desc">Sixteen years across audit, IT governance, and cybersecurity in government.
+              Orchestrated audit programs across BPKP offices and regional postings (Batam, Papua, Jakarta). Led SIMDA
+              E-Gov rollouts for local governments and data governance for hundreds of villages. Conducted
+              infrastructure vulnerability assessments; proposed feasible remediation plans. Designed ADB-sponsored
+              anti-fraud analytics training for government auditors. Built automated payment audit PoC and served as
+              lecturer and instructional designer at GIA Corpu.</p>
             <div class="tl-item__tags">
-              <span>ERP / SIMDA</span><span>Vulnerability Assessment</span><span>Fraud Detection</span><span>E-Gov</span><span>ADB Training</span><span>Kali Linux</span><span>Data Governance</span>
+              <span>ERP / SIMDA</span><span>Vulnerability Assessment</span><span>Fraud
+                Detection</span><span>E-Gov</span><span>ADB Training</span><span>Kali Linux</span><span>Data
+                Governance</span>
             </div>
           </div>
         </div>
@@ -562,7 +478,9 @@
                 <span><i class="fas fa-calendar-days"></i> Oct 2012 &ndash; Jun 2024</span>
               </div>
             </div>
-            <p class="tl-item__desc">Conducted risk maturity assessment for a payment-tech SOE subsidiary and composed a strategic roadmap from 1.6 to 4.0/5.0. Supported data governance and quality standards across 30+ local governments in Riau Islands, Papua, and East Kalimantan.</p>
+            <p class="tl-item__desc">Conducted risk maturity assessment for a payment-tech SOE subsidiary and composed a
+              strategic roadmap from 1.6 to 4.0/5.0. Supported data governance and quality standards across 30+ local
+              governments in Riau Islands, Papua, and East Kalimantan.</p>
             <div class="tl-item__tags">
               <span>Risk Maturity</span><span>Data Governance</span><span>GRC Consulting</span><span>ISO 31000</span>
             </div>
@@ -579,7 +497,8 @@
       <div class="section-header">
         <div class="section-label">Built &amp; Shipped</div>
         <h2 class="section-title">Projects &amp; <span class="text-accent">Experiments</span></h2>
-        <p class="section-sub">Tools built to solve real GRC, compliance, and cybersecurity problems — or to understand problems more deeply. Click any card to expand.</p>
+        <p class="section-sub">Tools built to solve real GRC, compliance, and cybersecurity problems — or to understand
+          problems more deeply. Click any card to expand.</p>
       </div>
       <div class="proj-grid">
 
@@ -591,7 +510,9 @@
               <span class="proj-badge proj-badge--live">Live</span>
             </div>
             <h3 class="proj-card__title">NIST SP 800-53 Chatbot</h3>
-            <p class="proj-card__why">NIST 800-53 spans 1,000+ pages. Auditors and engineers spend hours cross-referencing controls. This chatbot returns exact, citation-backed answers using Structured-first RAG — no hallucination, no interpretation drift.</p>
+            <p class="proj-card__why">NIST 800-53 spans 1,000+ pages. Auditors and engineers spend hours
+              cross-referencing controls. This chatbot returns exact, citation-backed answers using Structured-first RAG
+              — no hallucination, no interpretation drift.</p>
             <div class="proj-card__toggle-row">
               <div class="skill-tags" style="margin:0;">
                 <span class="stag stag-orange">RAG</span>
@@ -603,9 +524,13 @@
             </div>
           </div>
           <div class="proj-card__body">
-            <p class="proj-card__detail">Built on a Structured-first RAG architecture: controls are chunked by family, indexed with embeddings, and retrieved with semantic + structural matching before synthesis. The result is precise, control-family-aware answers that don't confabulate. Designed to close the technicalites gap — helping practitioners query technical security requirements in plain language.</p>
+            <p class="proj-card__detail">Built on a Structured-first RAG architecture: controls are chunked by family,
+              indexed with embeddings, and retrieved with semantic + structural matching before synthesis. The result is
+              precise, control-family-aware answers that don't confabulate. Designed to close the technicalites gap —
+              helping practitioners query technical security requirements in plain language.</p>
             <div class="proj-card__links">
-              <a href="https://80053.rudyprasetiya.com" target="_blank" rel="noopener" class="btn btn-outline btn-sm"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+              <a href="https://80053.rudyprasetiya.com" target="_blank" rel="noopener" class="btn btn-outline btn-sm"><i
+                  class="fas fa-external-link-alt"></i> Live Demo</a>
             </div>
           </div>
         </div>
@@ -618,7 +543,9 @@
               <span class="proj-badge proj-badge--live">Live</span>
             </div>
             <h3 class="proj-card__title">Compliance Command Center (C3)</h3>
-            <p class="proj-card__why">Compliance tracking at a payment company was manual, fragmented, and audit-unfriendly. C3 treats compliance as code — mapping controls to requirements, tracking gaps, and surfacing evidence automatically.</p>
+            <p class="proj-card__why">Compliance tracking at a payment company was manual, fragmented, and
+              audit-unfriendly. C3 treats compliance as code — mapping controls to requirements, tracking gaps, and
+              surfacing evidence automatically.</p>
             <div class="proj-card__toggle-row">
               <div class="skill-tags" style="margin:0;">
                 <span class="stag stag-purple">Compliance-as-Code</span>
@@ -629,9 +556,13 @@
             </div>
           </div>
           <div class="proj-card__body">
-            <p class="proj-card__detail">Designed for a payment-industry client (Company X). Controls are defined declaratively, linked to regulatory obligations, and tracked through a unified dashboard. Audit evidence is mapped automatically, reducing manual prep time before assessments. Compliance-as-Code means the compliance posture is version-controlled and auditable.</p>
+            <p class="proj-card__detail">Designed for a payment-industry client (Company X). Controls are defined
+              declaratively, linked to regulatory obligations, and tracked through a unified dashboard. Audit evidence
+              is mapped automatically, reducing manual prep time before assessments. Compliance-as-Code means the
+              compliance posture is version-controlled and auditable.</p>
             <div class="proj-card__links">
-              <a href="https://c3.rudyprasetiya.com/" target="_blank" rel="noopener" class="btn btn-outline btn-sm"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+              <a href="https://c3.rudyprasetiya.com/" target="_blank" rel="noopener" class="btn btn-outline btn-sm"><i
+                  class="fas fa-external-link-alt"></i> Live Demo</a>
             </div>
           </div>
         </div>
@@ -644,7 +575,9 @@
               <span class="proj-badge proj-badge--live">Live</span>
             </div>
             <h3 class="proj-card__title">Enterprise Risk Management — PIHC</h3>
-            <p class="proj-card__why">Standard ERM tools don't account for PSO obligations, food security policy, or IFRS 9 provisioning dynamics. Built a simulation ERM dashboard for Pupuk Indonesia Holding Company (PIHC) to explore how economics, public policy, and risk velocity interact in business decision-making.</p>
+            <p class="proj-card__why">Standard ERM tools don't account for PSO obligations, food security policy, or
+              IFRS 9 provisioning dynamics. Built a simulation ERM dashboard for Pupuk Indonesia Holding Company (PIHC)
+              to explore how economics, public policy, and risk velocity interact in business decision-making.</p>
             <div class="proj-card__toggle-row">
               <div class="skill-tags" style="margin:0;">
                 <span class="stag stag-blue">ISO 31000</span>
@@ -656,9 +589,13 @@
             </div>
           </div>
           <div class="proj-card__body">
-            <p class="proj-card__detail">Pupuk Indonesia Holding Company (PIHC) operates under Public Service Obligation — meaning risk cannot be assessed purely by commercial logic. This dashboard bridges econometrics (from UI and IUJ training), food security policy, IFRS 9, and ERM risk velocity concepts. Game-theoretic framing is used to model strategic risk interactions between subsidiaries and regulators.</p>
+            <p class="proj-card__detail">Pupuk Indonesia Holding Company (PIHC) operates under Public Service Obligation
+              — meaning risk cannot be assessed purely by commercial logic. This dashboard bridges econometrics (from UI
+              and IUJ training), food security policy, IFRS 9, and ERM risk velocity concepts. Game-theoretic framing is
+              used to model strategic risk interactions between subsidiaries and regulators.</p>
             <div class="proj-card__links">
-              <a href="https://erm.rudyprasetiya.com/" target="_blank" rel="noopener" class="btn btn-outline btn-sm"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+              <a href="https://erm.rudyprasetiya.com/" target="_blank" rel="noopener" class="btn btn-outline btn-sm"><i
+                  class="fas fa-external-link-alt"></i> Live Demo</a>
             </div>
           </div>
         </div>
@@ -671,7 +608,9 @@
               <span class="proj-badge proj-badge--live">Live</span>
             </div>
             <h3 class="proj-card__title">Audit Management Dashboard</h3>
-            <p class="proj-card__why">Internal audit teams lack a lightweight, modern platform for tracking audit plans, findings, and team workload. Prototype built on Remix, deployed on GCP Cloud Run — testing whether a domain expert can ship production-grade SaaS without a dedicated engineering team.</p>
+            <p class="proj-card__why">Internal audit teams lack a lightweight, modern platform for tracking audit plans,
+              findings, and team workload. Prototype built on Remix, deployed on GCP Cloud Run — testing whether a
+              domain expert can ship production-grade SaaS without a dedicated engineering team.</p>
             <div class="proj-card__toggle-row">
               <div class="skill-tags" style="margin:0;">
                 <span class="stag stag-orange">Remix</span>
@@ -682,9 +621,13 @@
             </div>
           </div>
           <div class="proj-card__body">
-            <p class="proj-card__detail">Full-stack application built with Remix (React framework) and deployed to Google Cloud Run. Covers audit plan tracking, finding management, and team workload views. Motivated by the observation that most GRC tools are either too expensive, too generic, or too legacy. This is an ongoing exploration of domain-expert-built SaaS in the RegTech space.</p>
+            <p class="proj-card__detail">Full-stack application built with Remix (React framework) and deployed to
+              Google Cloud Run. Covers audit plan tracking, finding management, and team workload views. Motivated by
+              the observation that most GRC tools are either too expensive, too generic, or too legacy. This is an
+              ongoing exploration of domain-expert-built SaaS in the RegTech space.</p>
             <div class="proj-card__links">
-              <a href="https://remix-audit-management-system-843498124367.us-west1.run.app" target="_blank" rel="noopener" class="btn btn-outline btn-sm"><i class="fas fa-external-link-alt"></i> Live App</a>
+              <a href="https://remix-audit-management-system-843498124367.us-west1.run.app" target="_blank"
+                rel="noopener" class="btn btn-outline btn-sm"><i class="fas fa-external-link-alt"></i> Live App</a>
             </div>
           </div>
         </div>
@@ -697,7 +640,9 @@
               <span class="proj-badge proj-badge--internal">Internal — Telin</span>
             </div>
             <h3 class="proj-card__title">OSINT Vulnerability Assessment Dashboard</h3>
-            <p class="proj-card__why">Telin's external-facing infrastructure had no systematic, open-source intelligence view. Built a dashboard using BGP and Shodan APIs to map observable vulnerabilities and present prioritised Opportunities for Improvement (OFIs) directly to management.</p>
+            <p class="proj-card__why">Telin's external-facing infrastructure had no systematic, open-source intelligence
+              view. Built a dashboard using BGP and Shodan APIs to map observable vulnerabilities and present
+              prioritised Opportunities for Improvement (OFIs) directly to management.</p>
             <div class="proj-card__toggle-row">
               <div class="skill-tags" style="margin:0;">
                 <span class="stag stag-teal">Shodan API</span>
@@ -709,7 +654,10 @@
             </div>
           </div>
           <div class="proj-card__body">
-            <p class="proj-card__detail">Queries BGP routing data and Shodan's internet-wide scan APIs to identify exposed services, misconfigured assets, and known CVEs across Telin's IP ranges. Results are aggregated into a management-friendly dashboard with severity scoring and remediation recommendations. Designed to make external threat intelligence part of the regular audit cycle, not a one-off exercise.</p>
+            <p class="proj-card__detail">Queries BGP routing data and Shodan's internet-wide scan APIs to identify
+              exposed services, misconfigured assets, and known CVEs across Telin's IP ranges. Results are aggregated
+              into a management-friendly dashboard with severity scoring and remediation recommendations. Designed to
+              make external threat intelligence part of the regular audit cycle, not a one-off exercise.</p>
           </div>
         </div>
 
@@ -721,7 +669,10 @@
               <span class="proj-badge proj-badge--wip">In Progress</span>
             </div>
             <h3 class="proj-card__title">The Society — Multi-Agent AI Layer</h3>
-            <p class="proj-card__why">Claude Code's ecosystem (GSD, superpowers, ECC) works well sequentially but not collectively. Hypothesis: adding a layer of 5 specialized agents — analogous to Solow's A-factor in macroeconomic growth (knowledge/technology advancement) — can maintain context, reduce token waste, and raise output quality.</p>
+            <p class="proj-card__why">Claude Code's ecosystem (GSD, superpowers, ECC) works well sequentially but not
+              collectively. Hypothesis: adding a layer of 5 specialized agents — analogous to Solow's A-factor in
+              macroeconomic growth (knowledge/technology advancement) — can maintain context, reduce token waste, and
+              raise output quality.</p>
             <div class="proj-card__toggle-row">
               <div class="skill-tags" style="margin:0;">
                 <span class="stag stag-orange">Claude API</span>
@@ -733,9 +684,15 @@
             </div>
           </div>
           <div class="proj-card__body">
-            <p class="proj-card__detail">Researching how to add a coordination layer to Claude Code that includes 5 specialized skill agents. Each agent handles a distinct knowledge domain (GRC, security, code review, research, synthesis). The analogy to macroeconomic growth theory: just as a country's GDP grows when technology/knowledge (A) improves — independently of capital and labour — an AI workflow improves when specialized knowledge compounds. Built on top of Everything-Claude-Code (ECC), GSD, and Superpowers plugins.</p>
+            <p class="proj-card__detail">Researching how to add a coordination layer to Claude Code that includes 5
+              specialized skill agents. Each agent handles a distinct knowledge domain (GRC, security, code review,
+              research, synthesis). The analogy to macroeconomic growth theory: just as a country's GDP grows when
+              technology/knowledge (A) improves — independently of capital and labour — an AI workflow improves when
+              specialized knowledge compounds. Built on top of Everything-Claude-Code (ECC), GSD, and Superpowers
+              plugins.</p>
             <div class="proj-card__links">
-              <a href="https://github.com/asfalanoij/the-society" target="_blank" rel="noopener" class="btn btn-outline btn-sm"><i class="fab fa-github"></i> GitHub</a>
+              <a href="https://github.com/asfalanoij/the-society" target="_blank" rel="noopener"
+                class="btn btn-outline btn-sm"><i class="fab fa-github"></i> GitHub</a>
             </div>
           </div>
         </div>
@@ -748,7 +705,11 @@
               <span class="proj-badge proj-badge--live">Live</span>
             </div>
             <h3 class="proj-card__title">Business Judgment Rule (BJR) Simulator</h3>
-            <p class="proj-card__why">In Indonesia, BUMN directors can be criminally charged under the Tipikor law if a business decision leads to state loss — even when made in good faith. The result: a Nash Equilibrium of bureaucratic paralysis. This simulator quantifies the invisible narrative inside UU PT Pasal 97(5) and trains decision-makers to reach the Pareto-optimal evidence frontier before taking a business case to the Board.</p>
+            <p class="proj-card__why">In Indonesia, BUMN directors can be criminally charged under the Tipikor law if a
+              business decision leads to state loss — even when made in good faith. The result: a Nash Equilibrium of
+              bureaucratic paralysis. This simulator quantifies the invisible narrative inside UU PT Pasal 97(5) and
+              trains decision-makers to reach the Pareto-optimal evidence frontier before taking a business case to the
+              Board.</p>
             <div class="proj-card__toggle-row">
               <div class="skill-tags" style="margin:0;">
                 <span class="stag stag-blue">Game Theory</span>
@@ -760,9 +721,20 @@
             </div>
           </div>
           <div class="proj-card__body">
-            <p class="proj-card__detail">The BJR Simulator (SubseanivityERM) models the Director's utility function as <em>U = α(Profit) − β(LegalRisk) − γ(CostOfEvidence)</em>. Unlike the private sector where β is civil, BUMN directors face β → ∞ under criminal interpretation of "Kerugian Negara." The simulator operationalises BJR immunity (Pasal 97(5) UU No. 40/2007) across 9 evidence clusters — Good Faith, Due Care, Informed Decision, Financial Analysis, Technical Diligence, Legal Compliance, Risk Register, Board Documentation, Stage-Gate — and scores each cluster against a weighted threshold. The target zone (Shield ≥ 75 / Outcome ≥ 60) defines the Pareto-efficient frontier: enough documented evidence to cap β ≈ 0, without over-spending governance budget on gold-plated proof where cost-efficient alternatives suffice. Built from Jensen &amp; Meckling's agency cost theory and Nash's equilibrium framework, applied to the iterated game of Indonesian SOE governance.</p>
+            <p class="proj-card__detail">The BJR Simulator (SubseanivityERM) models the Director's utility function as
+              <em>U = α(Profit) − β(LegalRisk) − γ(CostOfEvidence)</em>. Unlike the private sector where β is civil,
+              BUMN directors face β → ∞ under criminal interpretation of "Kerugian Negara." The simulator
+              operationalises BJR immunity (Pasal 97(5) UU No. 40/2007) across 9 evidence clusters — Good Faith, Due
+              Care, Informed Decision, Financial Analysis, Technical Diligence, Legal Compliance, Risk Register, Board
+              Documentation, Stage-Gate — and scores each cluster against a weighted threshold. The target zone (Shield
+              ≥ 75 / Outcome ≥ 60) defines the Pareto-efficient frontier: enough documented evidence to cap β ≈ 0,
+              without over-spending governance budget on gold-plated proof where cost-efficient alternatives suffice.
+              Built from Jensen &amp; Meckling's agency cost theory and Nash's equilibrium framework, applied to the
+              iterated game of Indonesian SOE governance.
+            </p>
             <div class="proj-card__links">
-              <a href="https://bjr.rudyprasetiya.com/" target="_blank" rel="noopener" class="btn btn-outline btn-sm"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+              <a href="https://bjr.rudyprasetiya.com/" target="_blank" rel="noopener" class="btn btn-outline btn-sm"><i
+                  class="fas fa-external-link-alt"></i> Live Demo</a>
             </div>
           </div>
         </div>
@@ -775,7 +747,9 @@
               <span class="proj-badge proj-badge--gh">GitHub</span>
             </div>
             <h3 class="proj-card__title">Fraud Detection — ML Pipeline</h3>
-            <p class="proj-card__why">Auditing ML-based fraud detection systems requires understanding how they work at the model level — not just reviewing outputs. Built an end-to-end credit card fraud detection pipeline to develop that credibility as an IT auditor.</p>
+            <p class="proj-card__why">Auditing ML-based fraud detection systems requires understanding how they work at
+              the model level — not just reviewing outputs. Built an end-to-end credit card fraud detection pipeline to
+              develop that credibility as an IT auditor.</p>
             <div class="proj-card__toggle-row">
               <div class="skill-tags" style="margin:0;">
                 <span class="stag stag-teal">Python</span>
@@ -787,9 +761,15 @@
             </div>
           </div>
           <div class="proj-card__body">
-            <p class="proj-card__detail">Full pipeline: IDE setup (VSCode, GitHub, Kaggle, Conda), EDA &amp; preprocessing, train/test split, model training and prediction. Built as part of the Pacmann.io learning path (2024) — highly recommended for its slow-paced, hands-on curriculum. Adapted from work by @amalinadhi and @davidsirait, revised and elaborated for analytical and learning purposes. The core insight for an auditor: raw data from Backend/Data Engineers requires significant preprocessing before a model can be built — and understanding that gap is essential for credible ML system audits.</p>
+            <p class="proj-card__detail">Full pipeline: IDE setup (VSCode, GitHub, Kaggle, Conda), EDA &amp;
+              preprocessing, train/test split, model training and prediction. Built as part of the Pacmann.io learning
+              path (2024) — highly recommended for its slow-paced, hands-on curriculum. Adapted from work by @amalinadhi
+              and @davidsirait, revised and elaborated for analytical and learning purposes. The core insight for an
+              auditor: raw data from Backend/Data Engineers requires significant preprocessing before a model can be
+              built — and understanding that gap is essential for credible ML system audits.</p>
             <div class="proj-card__links">
-              <a href="https://github.com/asfalanoij/fraud_detection" target="_blank" rel="noopener" class="btn btn-outline btn-sm"><i class="fab fa-github"></i> GitHub</a>
+              <a href="https://github.com/asfalanoij/fraud_detection" target="_blank" rel="noopener"
+                class="btn btn-outline btn-sm"><i class="fab fa-github"></i> GitHub</a>
             </div>
           </div>
         </div>
@@ -809,7 +789,9 @@
       <div class="skills-grid">
 
         <div class="skill-cat reveal">
-          <div class="skill-cat__header"><i class="fas fa-robot"></i><h3>AI &amp; Product Engineering</h3></div>
+          <div class="skill-cat__header"><i class="fas fa-robot"></i>
+            <h3>AI &amp; Product Engineering</h3>
+          </div>
           <div class="skill-tags">
             <span class="stag stag-orange">RAG / Embeddings</span>
             <span class="stag stag-orange">LLM Applications</span>
@@ -823,7 +805,9 @@
         </div>
 
         <div class="skill-cat reveal">
-          <div class="skill-cat__header"><i class="fas fa-magnifying-glass-chart"></i><h3>GRC &amp; Audit Practice</h3></div>
+          <div class="skill-cat__header"><i class="fas fa-magnifying-glass-chart"></i>
+            <h3>GRC &amp; Audit Practice</h3>
+          </div>
           <div class="skill-tags">
             <span class="stag stag-blue">Risk-Based Audit</span>
             <span class="stag stag-blue">COSO-ERM</span>
@@ -837,7 +821,9 @@
         </div>
 
         <div class="skill-cat reveal">
-          <div class="skill-cat__header"><i class="fas fa-shield-halved"></i><h3>Cybersecurity</h3></div>
+          <div class="skill-cat__header"><i class="fas fa-shield-halved"></i>
+            <h3>Cybersecurity</h3>
+          </div>
           <div class="skill-tags">
             <span class="stag stag-teal">Vulnerability Assessment</span>
             <span class="stag stag-teal">OSINT / Shodan</span>
@@ -851,7 +837,9 @@
         </div>
 
         <div class="skill-cat reveal">
-          <div class="skill-cat__header"><i class="fas fa-scale-balanced"></i><h3>Regulatory &amp; Compliance</h3></div>
+          <div class="skill-cat__header"><i class="fas fa-scale-balanced"></i>
+            <h3>Regulatory &amp; Compliance</h3>
+          </div>
           <div class="skill-tags">
             <span class="stag stag-purple">OJK Regulations</span>
             <span class="stag stag-purple">BUMN / SOE Compliance</span>
@@ -868,13 +856,16 @@
 
       <div class="skills-grid" style="margin-top:2rem;">
         <div class="skill-cat reveal" style="grid-column:1/-1;">
-          <div class="skill-cat__header"><i class="fas fa-certificate"></i><h3>Professional Certifications</h3></div>
+          <div class="skill-cat__header"><i class="fas fa-certificate"></i>
+            <h3>Professional Certifications</h3>
+          </div>
           <div class="skill-tags">
             <span class="stag stag-blue">CDSP &mdash; Certified Data Science Practitioner (CertNexus) ✓</span>
             <span class="stag stag-blue">CC &mdash; Certified in Cybersecurity (ISC2) ✓</span>
             <span class="stag stag-blue">QRMP &mdash; Quality Risk Management Professional (BNSP) ✓</span>
             <span class="stag stag-purple">CFE &mdash; Certified Fraud Examiner (ACFE) &middot; Aspiring</span>
-            <span class="stag stag-purple">C|CT &mdash; Certified Cybersecurity Technician (EC-Council) &middot; Aspiring</span>
+            <span class="stag stag-purple">C|CT &mdash; Certified Cybersecurity Technician (EC-Council) &middot;
+              Aspiring</span>
             <span class="stag stag-teal">Digital Forensics Essentials (EC-Council)</span>
             <span class="stag stag-teal">Google Cybersecurity Specialization</span>
             <span class="stag stag-teal">Python for Cybersecurity (INFOSEC)</span>
@@ -894,7 +885,8 @@
       <div class="section-header">
         <div class="section-label">Get In Touch</div>
         <h2 class="section-title">Let's <span class="text-accent">Connect</span></h2>
-        <p class="section-sub">Open for conversations around GRC, RegTech, AI governance, research collaboration, and consulting. If our work might overlap — I'd love to hear from you.</p>
+        <p class="section-sub">Open for conversations around GRC, RegTech, AI governance, research collaboration, and
+          consulting. If our work might overlap — I'd love to hear from you.</p>
       </div>
       <div class="contact-grid">
         <div class="contact-info">
@@ -940,11 +932,13 @@
           </div>
           <div class="form-group">
             <label for="subject">Subject</label>
-            <input type="text" id="subject" name="subject" placeholder="Consulting, research collaboration, RegTech, speaking…" />
+            <input type="text" id="subject" name="subject"
+              placeholder="Consulting, research collaboration, RegTech, speaking…" />
           </div>
           <div class="form-group">
             <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project, idea, or question…" required></textarea>
+            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project, idea, or question…"
+              required></textarea>
           </div>
           <button type="submit" class="btn btn-primary btn-full">
             <i class="fas fa-paper-plane"></i> Send Message
@@ -959,32 +953,36 @@
   <footer class="footer">
     <div class="container">
       <div class="footer__inner">
-        <p class="footer__copy">&copy; <span id="year"></span> Rudy Prasetiya &mdash; GRC &amp; RegTech Professional</p>
+        <p class="footer__copy">&copy; <span id="year"></span> Rudy Prasetiya &mdash; IT GRC and RegTech Builder</p>
         <div class="footer__social">
-          <a href="https://www.linkedin.com/in/rudyprasetiya" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.linkedin.com/in/rudyprasetiya" target="_blank" rel="noopener"><i
+              class="fab fa-linkedin-in"></i></a>
           <a href="https://github.com/asfalanoij" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
         </div>
       </div>
-      <div style="border-top:1px solid rgba(0,212,255,0.08);margin-top:1rem;padding-top:0.9rem;display:flex;align-items:center;justify-content:center;gap:1.2rem;flex-wrap:wrap;">
-        <span style="font-size:0.72rem;color:#475569;font-family:'JetBrains Mono',monospace;display:flex;align-items:center;gap:0.4rem;">
-          <i class="fas fa-location-dot" style="color:#00d4ff;font-size:0.65rem;"></i>
-          <span id="visitor-country" style="color:#64748b;">detecting…</span>
+      <div class="footer__meta">
+        <span class="footer__meta-item">
+          <i class="fas fa-location-dot footer__meta-icon" style="color:#00d4ff;"></i>
+          <span id="visitor-country" class="footer__meta-val">detecting…</span>
         </span>
-        <span style="color:#1e293b;font-size:0.65rem;">·</span>
-        <span style="font-size:0.72rem;color:#475569;font-family:'JetBrains Mono',monospace;display:flex;align-items:center;gap:0.4rem;">
-          <i class="fas fa-users" style="color:#7b2fbe;font-size:0.65rem;"></i>
-          <span id="visitor-count" style="color:#64748b;">—</span>
-          <span style="color:#334155;">visitors</span>
+        <span class="footer__meta-sep">·</span>
+        <span class="footer__meta-item">
+          <i class="fas fa-users footer__meta-icon" style="color:#7b2fbe;"></i>
+          <span id="visitor-count" class="footer__meta-val">—</span>
+          <span class="footer__meta-label">visitors</span>
         </span>
       </div>
     </div>
   </footer>
 
   <!-- ── Sticky Hire Me ───────────────────────── -->
-  <a id="sticky-hire" class="sticky-hire" href="https://wa.me/628114828024?text=Hi%20Rudy%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener">
-    <i class="fab fa-whatsapp"></i> Hire Me
+  <a id="sticky-hire" class="sticky-hire"
+    href="https://wa.me/628114828024?text=Hi%20Rudy%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project."
+    target="_blank" rel="noopener">
+    <i class="fab fa-whatsapp"></i> Consulting
   </a>
 
   <script src="js/main.js"></script>
 </body>
+
 </html>
