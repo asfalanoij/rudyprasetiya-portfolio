@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PNHC Simulation — Risk-Control Matrix</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    line-height: 1.5;
+    color: #37352f;
+    background: #fff;
+    padding: 40px 48px;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* Header */
+  .doc-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: #9b9b9b;
+    margin-bottom: 8px;
+  }
+
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a1a;
+    letter-spacing: -.3px;
+    margin-bottom: 6px;
+  }
+
+  .doc-sub {
+    font-size: 12px;
+    color: #6b6b6b;
+    margin-bottom: 14px;
+  }
+
+  .disclaimer {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #fff8e7;
+    border: 1px solid #f5d67b;
+    border-radius: 6px;
+    padding: 7px 12px;
+    font-size: 10.5px;
+    color: #7c5c00;
+    margin-bottom: 28px;
+  }
+
+  /* Heat pills */
+  .heat-row { display: flex; gap: 10px; margin-bottom: 28px; flex-wrap: wrap; }
+
+  .heat-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 8px;
+    background: #f7f6f3;
+    border: 1px solid #e9e9e7;
+    font-size: 10.5px;
+  }
+
+  .heat-pill .label { color: #6b6b6b; font-weight: 500; }
+  .heat-pill .counts { font-weight: 700; }
+
+  /* Section label */
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: #9b9b9b;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #e9e9e7;
+  }
+
+  /* Table */
+  table { width: 100%; border-collapse: collapse; table-layout: fixed; margin-bottom: 40px; }
+  col.c-id      { width: 5%; }
+  col.c-domain  { width: 10%; }
+  col.c-desc    { width: 17%; }
+  col.c-inh     { width: 8%; }
+  col.c-control { width: 27%; }
+  col.c-ctype   { width: 8%; }
+  col.c-res     { width: 8%; }
+  col.c-kri     { width: 13%; }
+  col.c-pri     { width: 4%; }
+
+  thead tr { background: #f7f6f3; }
+
+  th {
+    padding: 7px 8px;
+    text-align: left;
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    color: #6b6b6b;
+    border-bottom: 1px solid #e9e9e7;
+    border-right: 1px solid #f0f0ee;
+    white-space: nowrap;
+  }
+
+  th:last-child { border-right: none; }
+
+  td {
+    padding: 6px 8px;
+    vertical-align: top;
+    font-size: 10.5px;
+    border-bottom: 1px solid #f0f0ee;
+    border-right: 1px solid #f7f6f3;
+    word-break: break-word;
+  }
+
+  td:last-child { border-right: none; }
+  tr.domain-first td { border-top: 2px solid #e9e9e7; }
+
+  /* Badges */
+  .badge {
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: .03em;
+    white-space: nowrap;
+  }
+
+  .badge-critical { background: #fde8e8; color: #b91c1c; }
+  .badge-high     { background: #fff0e0; color: #c2410c; }
+  .badge-moderate { background: #fef9c3; color: #854d0e; }
+  .badge-low      { background: #dcfce7; color: #166534; }
+
+  .score { font-weight: 700; color: #37352f; font-size: 10px; }
+
+  /* Control type tags */
+  .ctag {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 9px;
+    font-weight: 600;
+    margin-bottom: 2px;
+    white-space: nowrap;
+  }
+
+  .ctag-prev { background: #dbeafe; color: #1d4ed8; }
+  .ctag-det  { background: #f3e8ff; color: #7e22ce; }
+  .ctag-corr { background: #fee2e2; color: #991b1b; }
+
+  /* Priority */
+  .pri {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 9px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .pri-critical { background: #fde8e8; color: #b91c1c; }
+  .pri-high     { background: #fff0e0; color: #c2410c; }
+  .pri-medium   { background: #f7f6f3; color: #6b6b6b; }
+
+  /* Risk ID */
+  .risk-id {
+    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+    font-size: 9.5px;
+    font-weight: 700;
+    color: #37352f;
+    background: #f7f6f3;
+    border: 1px solid #e9e9e7;
+    border-radius: 4px;
+    padding: 2px 5px;
+    white-space: nowrap;
+  }
+
+  /* Download button (screen only) */
+  .dl-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #37352f;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 9px 18px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    margin-bottom: 32px;
+    transition: background .15s;
+  }
+
+  .dl-btn:hover { background: #1a1a1a; }
+
+  /* Footer */
+  .doc-footer {
+    font-size: 9.5px;
+    color: #9b9b9b;
+    border-top: 1px solid #e9e9e7;
+    padding-top: 12px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* Print */
+  @media print {
+    body { padding: 0; font-size: 8.5px; }
+    h1 { font-size: 20px; }
+    td, th { font-size: 7.5px; padding: 4px 5px; }
+    .badge, .ctag, .pri { font-size: 7px; padding: 1px 4px; }
+    .score { font-size: 7.5px; }
+    .risk-id { font-size: 7.5px; }
+    table { page-break-inside: auto; }
+    tr { page-break-inside: avoid; }
+    thead { display: table-header-group; }
+    .dl-btn { display: none; }
+  }
+
+  @page {
+    size: A3 landscape;
+    margin: 15mm 18mm;
+  }
+</style>
+</head>
+<body>
+
+<span class="doc-tag">Simulation · ERM Framework · PNHC</span>
+<h1>Risk-Control Matrix</h1>
+<p class="doc-sub">Pupuk Nusantara Holding Company (PNHC) &nbsp;·&nbsp; Rudy Prasetiya &nbsp;·&nbsp; May 2026</p>
+
+<div class="disclaimer">
+  <strong>Simulation Notice:</strong>&nbsp; PNHC is a fictional entity created for ERM demonstration purposes only. Not affiliated with any real company or engagement.
+</div>
+
+<br>
+
+<button class="dl-btn" onclick="window.print()">
+  ↓ &nbsp; Save as PDF
+</button>
+
+<!-- Heat Map -->
+<div class="heat-row">
+  <div class="heat-pill"><span class="label">Total Risks</span><span class="counts">16</span></div>
+  <div class="heat-pill"><span class="label">Inherent Critical</span><span class="counts" style="color:#b91c1c">5</span></div>
+  <div class="heat-pill"><span class="label">Inherent High</span><span class="counts" style="color:#c2410c">8</span></div>
+  <div class="heat-pill"><span class="label">Inherent Moderate</span><span class="counts" style="color:#854d0e">3</span></div>
+  <div class="heat-pill"><span class="label">Residual Critical</span><span class="counts" style="color:#b91c1c">0</span></div>
+  <div class="heat-pill"><span class="label">Residual High</span><span class="counts" style="color:#c2410c">3</span></div>
+  <div class="heat-pill"><span class="label">Residual Moderate</span><span class="counts" style="color:#854d0e">11</span></div>
+  <div class="heat-pill"><span class="label">Residual Low</span><span class="counts" style="color:#166534">2</span></div>
+</div>
+
+<p class="section-label">Risk-Control Register — All Domains</p>
+
+<table>
+  <colgroup>
+    <col class="c-id"><col class="c-domain"><col class="c-desc">
+    <col class="c-inh"><col class="c-control"><col class="c-ctype">
+    <col class="c-res"><col class="c-kri"><col class="c-pri">
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Risk ID</th><th>Domain</th><th>Risk Description</th>
+      <th>Inherent Risk</th><th>Key Control</th><th>Control Type</th>
+      <th>Residual Risk</th><th>KRI &amp; Threshold</th><th>Priority</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr class="domain-first">
+      <td><span class="risk-id">STR-01</span></td>
+      <td>Strategic / PSO</td>
+      <td>PSO Subsidy Payment Delay</td>
+      <td><span class="score">4×5=20</span><br><span class="badge badge-critical">Critical</span></td>
+      <td>Monthly AR aging monitoring + escalation to Ministry of SOEs; PSO receivable factoring with BRI/BNI</td>
+      <td><span class="ctag ctag-det">Detective</span><br><span class="ctag ctag-prev">Preventive</span></td>
+      <td><span class="score">3×4=12</span><br><span class="badge badge-high">High</span></td>
+      <td>DSO on PSO receivables<br><span style="color:#9b9b9b">Threshold: &gt;90 days</span></td>
+      <td><span class="pri pri-high">High</span></td>
+    </tr>
+
+    <tr>
+      <td><span class="risk-id">STR-02</span></td>
+      <td>Strategic / PSO</td>
+      <td>PSO Policy Discontinuation Risk</td>
+      <td><span class="score">2×5=10</span><br><span class="badge badge-high">High</span></td>
+      <td>Engagement with Kementan &amp; Kemenko Perekonomian; 3-scenario business model planning (PSO / hybrid / commercial)</td>
+      <td><span class="ctag ctag-prev">Preventive</span></td>
+      <td><span class="score">2×4=8</span><br><span class="badge badge-moderate">Moderate</span></td>
+      <td>Regulatory draft changes; RUU tabling<br><span style="color:#9b9b9b">Threshold: any bill affecting PSO mandate</span></td>
+      <td><span class="pri pri-high">High</span></td>
+    </tr>
+
+    <tr>
+      <td><span class="risk-id">STR-03</span></td>
+      <td>Strategic / PSO</td>
+      <td>Subsidiary Strategic Divergence</td>
+      <td><span class="score">3×3=9</span><br><span class="badge badge-moderate">Moderate</span></td>
+      <td>Quarterly subsidiary KPI alignment review; Holding veto rights on capex &gt;IDR 50B; PSO targets embedded in RKAP</td>
+      <td><span class="ctag ctag-prev">Preventive</span><br><span class="ctag ctag-det">Detective</span></td>
+      <td><span class="score">2×3=6</span><br><span class="badge badge-moderate">Moderate</span></td>
+      <td>PSO distribution achievement rate/subsidiary<br><span style="color:#9b9b9b">Threshold: &lt;85%</span></td>
+      <td><span class="pri pri-medium">Medium</span></td>
+    </tr>
+
+    <tr>
+      <td><span class="risk-id">STR-04</span></td>
+      <td>Strategic / PSO</td>
+      <td>Reputational Risk from PSO Non-Delivery</td>
+      <td><span class="score">3×4=12</span><br><span class="badge badge-high">High</span></td>
+      <td>Real-time RDKK distribution monitoring; farmer hotline with 48-hour SLA; media sentiment monitoring</td>
+      <td><span class="ctag ctag-det">Detective</span><br><span class="ctag ctag-corr">Corrective</span></td>
+      <td><span class="score">2×4=8</span><br><span class="badge badge-moderate">Moderate</span></td>
+      <td>Farmer complaint rate; media sentiment<br><span style="color:#9b9b9b">Threshold: &gt;50 complaints/month or negative sentiment &gt;30%</span></td>
+      <td><span class="pri pri-high">High</span></td>
+    </tr>
+
+    <tr class="domain-first">
+      <td><span class="risk-id">FIN-01</span></td>
+      <td>Financial / IFRS 9</td>
+      <td>IFRS 9 Stage Migration — Subsidiary Loans</td>
+      <td><span class="score">3×5=15</span><br><span class="badge badge-critical">Critical</span></td>
+      <td>Monthly ECL model recalibration; early warning at SICR boundary; quarterly SICR assessment with qualitative overlays</td>
+      <td><span class="ctag ctag-det">Detective</span><br><span class="ctag ctag-prev">Preventive</span></td>
+      <td><span class="score">2×4=8</span><br><span class="badge badge-moderate">Moderate</span></td>
+      <td>% intercompany loans in Stage 2+<br><span style="color:#9b9b9b">Threshold: &gt;15% of portfolio notional</span></td>
+      <td><span class="pri pri-critical">Critical</span></td>
+    </tr>
+
+    <tr>
+      <td><span class="risk-id">FIN-02</span></td>
+      <td>Financial / IFRS 9</td>
+      <td>Liquidity Risk from PSO Reimbursement Lag</td>
+      <td><span class="score">4×4=16</span><br><span class="badge badge-critical">Critical</span></td>
+      <td>Revolving credit facility (min. 3-month opex coverage); weekly 13-week rolling cash forecast; PSO receivable factoring</td>
+      <td><span class="ctag ctag-prev">Preventive</span></td>
+      <td><span class="score">2×3=6</span><br><span class="badge badge-moderate">Moderate</span></td>
+      <td>LCR; Current Ratio<br><span style="color:#9b9b9b">Threshold: LCR &lt;1.2× or Current Ratio &lt;1.0×</span></td>
+      <td><span class="pri pri-critical">Critical</span></td>
+    </tr>
+
+    <tr>
+      <td><span class="risk-id">FIN-03</span></td>
+      <td>Financial / IFRS 9</td>
+      <td>Natural Gas Price Volatility</td>
+      <td><span class="score">4×4=16</span><br><span class="badge badge-critical">Critical</span></td>
+      <td>Long-term GSA with PGN covering ≥80% of annual requirement; price hedging policy for remaining 20%</td>
+      <td><span class="ctag ctag-prev">Preventive</span></td>
+      <td><span class="score">3×3=9</span><br><span class="badge badge-moderate">Moderate</span></td>
+      <td>Gas cost as % of COGS vs budget<br><span style="color:#9b9b9b">Threshold: variance &gt;15% vs budgeted cost</span></td>
+      <td><span class="pri pri-high">High</span></td>
+    </tr>
+
+    <tr>
+      <td><span class="risk-id">FIN-04</span></td>
+      <td>Financial / IFRS 9</td>
+      <td>Foreign Exchange Risk</td>
+      <td><span class="score">3×3=9</span><br><span class="badge badge-moderate">Moderate</span></td>
+      <td>FX forward contracts covering ≥60% of projected USD payables; monthly FX exposure report to Board</td>
+      <td><span class="ctag ctag-prev">Preventive</span><br><span class="ctag ctag-det">Detective</span></td>
+      <td><span class="score">2×3=6</span><br><span class="badge badge-moderate">Moderate</span></td>
+      <td>Net open FX position % equity; IDR/USD vs budget<br><span style="color:#9b9b9b">Threshold: deviation &gt;10% from budget rate</span></td>
+      <td><span class="pri pri-medium">Medium</span></td>
+    </tr>
+
+    <tr class="domain-first">
+      <td><span class="risk-id">OPS-01</span></td>
+      <td>Operational</td>
+      <td>Raw Material Supply Chain Disruption</td>
+      <td><span class="score">3×4=12</span><br><span class="badge badge-high">High</span></td>
+      <td>Dual/multi-sourcing (≥2 approved suppliers per critical input); 45-day strategic inventory buffer; monthly supplier risk scorecard</td>
+      <td><span class="ctag ctag-prev">Preventive</span></td>
+      <td><span class="score">2×3=6</span><br><span class="badge badge-moderate">Moderate</span></td>
+      <td>Days of Inventory on Hand (DIOH); supplier OTD rate<br><span style="color:#9b9b9b">Threshold: DIOH &lt;30 days or OTD &lt;85%</span></td>
+      <td><span class="pri pri-high">High</span></td>
+    </tr>
+
+    <tr>
+      <td><span class="risk-id">OPS-02</span></td>
+      <td>Operational</td>
+      <td>Plant Equipment Reliability Risk</td>
+      <td><span class="score">4×4=16</span><br><span class="badge badge-critical">Critical</span></td>
+      <td>Predictive maintenance (vibration / thermography); annual major turnaround schedule; OEE dashboard with real-time alerts</td>
+      <td><span class="ctag ctag-prev">Preventive</span><br><span class="ctag ctag-det">Detective</span></td>
+      <td><span class="score">3×3=9</span><br><span class="badge badge-moderate">Moderate</span></td>
+      <td>OEE; unplanned downtime hours/month<br><span style="color:#9b9b9b">Threshold: OEE &lt;85% or downtime &gt;72 hrs/month</span></td>
+      <td><span class="pri pri-critical">Critical</span></td>
+    </tr>
+
+    <tr>
+      <td><span class="risk-id">OPS-03</span></td>
+      <td>Operational</td>
+      <td>Last-Mile Distribution Failure</td>
+      <td><span class="score">3×4=12</span><br><span class="badge badge-high">High</span></td>
+      <td>RDKK digital tracking per kecamatan; distributor financial health scorecard; backup distributor appointment protocol</td>
+      <td><span class="ctag ctag-det">Detective</span><br><span class="ctag ctag-corr">Corrective</span></td>
+      <td><span class="score">2×3=6</span><br><span class="badge badge-moderate">Moderate</span></td>
+      <td>% RDKK allocation on schedule; distributor AR overdue<br><span style="color:#9b9b9b">Threshold: on-time rate &lt;80% or AR overdue &gt;60 days</span></td>
+      <td><span class="pri pri-high">High</span></td>
+    </tr>
+
+    <tr>
+      <td><span class="risk-id">OPS-04</span></td>
+      <td>Operational</td>
+      <td>HSE — Chemical Plant Incident</td>
+      <td><span class="score">2×5=10</span><br><span class="badge badge-high">High</span></td>
+      <td>ISO 45001 OHSMS; Process Safety Management (PSM); monthly HSE audit; contractor HSE pre-qualification</td>
+      <td><span class="ctag ctag-prev">Preventive</span></td>
+      <td><span class="score">1×5=5</span><br><span class="badge badge-moderate">Moderate</span></td>
+      <td>LTIFR; near-miss report rate<br><span style="color:#9b9b9b">Threshold: LTIFR &gt;0.5 or near-miss reports declining</span></td>
+      <td><span class="pri pri-high">High</span></td>
+    </tr>
+
+    <tr class="domain-first">
+      <td><span class="risk-id">REG-01</span></td>
+      <td>Regulatory / Compliance</td>
+      <td>SOE Governance Non-Compliance (GCG)</td>
+      <td><span class="score">2×4=8</span><br><span class="badge badge-moderate">Moderate</span></td>
+      <td>Annual GCG self-assessment (BUMN scorecard); independent GCG audit every 2 years; Board charter review cycle</td>
+      <td><span class="ctag ctag-prev">Preventive</span><br><span class="ctag ctag-det">Detective</span></td>
+      <td><span class="score">1×3=3</span><br><span class="badge badge-low">Low</span></td>
+      <td>GCG composite score; open recs closure rate<br><span style="color:#9b9b9b">Threshold: GCG &lt;75/100 or closure rate &lt;70%</span></td>
+      <td><span class="pri pri-medium">Medium</span></td>
+    </tr>
+
+    <tr>
+      <td><span class="risk-id">REG-02</span></td>
+      <td>Regulatory / Compliance</td>
+      <td>Environmental Compliance — Emission &amp; Effluent</td>
+      <td><span class="score">2×4=8</span><br><span class="badge badge-moderate">Moderate</span></td>
+      <td>Continuous Emission Monitoring System (CEMS); quarterly PROPER compliance review; ISO 14001 EMS</td>
+      <td><span class="ctag ctag-det">Detective</span><br><span class="ctag ctag-prev">Preventive</span></td>
+      <td><span class="score">1×3=3</span><br><span class="badge badge-low">Low</span></td>
+      <td>PROPER rating; permit exceedances/quarter<br><span style="color:#9b9b9b">Threshold: PROPER RED or &gt;2 exceedances/quarter</span></td>
+      <td><span class="pri pri-medium">Medium</span></td>
+    </tr>
+
+    <tr>
+      <td><span class="risk-id">REG-03</span></td>
+      <td>Regulatory / Compliance</td>
+      <td>Transfer Pricing Risk</td>
+      <td><span class="score">3×4=12</span><br><span class="badge badge-high">High</span></td>
+      <td>Annual TP documentation per PMK-213; independent benchmarking study; TP risk review in quarterly tax committee; APA feasibility</td>
+      <td><span class="ctag ctag-prev">Preventive</span></td>
+      <td><span class="score">2×3=6</span><br><span class="badge badge-moderate">Moderate</span></td>
+      <td>Tax audit coverage ratio; TP exposure (IDR notional)<br><span style="color:#9b9b9b">Threshold: any DGT audit notification or exposure &gt;IDR 50B</span></td>
+      <td><span class="pri pri-high">High</span></td>
+    </tr>
+
+    <tr>
+      <td><span class="risk-id">REG-04</span></td>
+      <td>Regulatory / Compliance</td>
+      <td>BPK Audit Finding Risk</td>
+      <td><span class="score">3×4=12</span><br><span class="badge badge-high">High</span></td>
+      <td>Pre-BPK internal audit simulation (annual); audit recommendation tracking system; PSO documentation completeness checklist</td>
+      <td><span class="ctag ctag-prev">Preventive</span><br><span class="ctag ctag-det">Detective</span></td>
+      <td><span class="score">2×3=6</span><br><span class="badge badge-moderate">Moderate</span></td>
+      <td>Material BPK findings count; closure rate<br><span style="color:#9b9b9b">Threshold: &gt;3 material findings or closure rate &lt;70%</span></td>
+      <td><span class="pri pri-high">High</span></td>
+    </tr>
+
+  </tbody>
+</table>
+
+<!-- Scoring Legend -->
+<p class="section-label">Scoring Guide</p>
+<div style="display:flex; gap:24px; margin-bottom:32px; flex-wrap:wrap;">
+  <div style="font-size:10.5px;">
+    <strong>Likelihood</strong><br>
+    <span style="color:#9b9b9b">1 Rare &nbsp; 2 Unlikely &nbsp; 3 Possible &nbsp; 4 Likely &nbsp; 5 Almost Certain</span>
+  </div>
+  <div style="font-size:10.5px;">
+    <strong>Impact</strong><br>
+    <span style="color:#9b9b9b">1 Negligible &nbsp; 2 Minor &nbsp; 3 Moderate &nbsp; 4 Major &nbsp; 5 Catastrophic</span>
+  </div>
+  <div style="font-size:10.5px;">
+    <strong>Risk Rating</strong><br>
+    <span class="badge badge-low">Low</span>&nbsp;1–4&nbsp;&nbsp;
+    <span class="badge badge-moderate">Moderate</span>&nbsp;5–9&nbsp;&nbsp;
+    <span class="badge badge-high">High</span>&nbsp;10–14&nbsp;&nbsp;
+    <span class="badge badge-critical">Critical</span>&nbsp;15–25
+  </div>
+  <div style="font-size:10.5px;">
+    <strong>Frameworks</strong><br>
+    <span style="color:#9b9b9b">COSO ERM 2017 &nbsp;·&nbsp; ISO 31000:2018 &nbsp;·&nbsp; IFRS 9 (ECL/SICR) &nbsp;·&nbsp; Permen BUMN GCG</span>
+  </div>
+</div>
+
+<div class="doc-footer">
+  <span>PNHC Simulation — Risk-Control Matrix &nbsp;·&nbsp; Rudy Prasetiya &nbsp;·&nbsp; rudyprasetiya.com</span>
+  <span>Fictional case study. Not affiliated with any real entity.</span>
+</div>
+
+</body>
+</html>
